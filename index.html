@@ -1,0 +1,2045 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head><!-- Favicon / app icons --><link href="favicon-exact-all-devices.svg" rel="icon" type="image/svg+xml"/><link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"/><link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"/><link href="favicon-48x48.png" rel="icon" sizes="48x48" type="image/png"/><link href="favicon.ico" rel="shortcut icon"/><link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"/><link href="site.webmanifest" rel="manifest"/><meta content="#f7f3eb" name="theme-color"/>
+<link as="image" href="hero.jpg" rel="preload"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Port Royale Apartment 285</title>
+<meta content="Modern pool view apartment in Port Royale, Los Cristianos." name="description"/>
+
+<style>
+
+    :root {
+      --bg: #f6f1e8;
+      --paper: rgba(255,255,255,.78);
+      --card: rgba(255,255,255,.88);
+      --text: #20252d;
+      --muted: #68707c;
+      --line: rgba(32,37,45,.08);
+      --shadow: 0 18px 50px rgba(0,0,0,.10);
+      --accent: #1f6f78;
+      --gold: #c49a53;
+      --white: #ffffff;
+      --radius: 30px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(196,154,83,.12), transparent 22%),
+        linear-gradient(180deg, #fcf8f2 0%, var(--bg) 100%);
+      line-height: 1.55;
+    }
+    .wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 20px 18px 70px;
+    }
+    .nav {
+      position: sticky;
+      top: 12px;
+      z-index: 50;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 12px 16px;
+      background: rgba(255,255,255,.76);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: 0 10px 26px rgba(0,0,0,.05);
+      margin-bottom: 20px;
+    }
+    .brand {
+      display:flex;
+      align-items:center;
+      gap:14px;
+    }
+    .brand-mark {
+      width:42px;
+      height:42px;
+      border-radius:16px;
+      display:grid;
+      place-items:center;
+      background:linear-gradient(145deg, rgba(255,255,255,.98), rgba(247,242,232,.96));
+      border:1px solid rgba(32,37,45,.08);
+      box-shadow:0 10px 24px rgba(0,0,0,.06);
+      flex:0 0 auto;
+    }
+    .brand-text { display:flex; flex-direction:column; line-height:1.02; }
+    .brand-title {
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:18px;
+      letter-spacing:.08em;
+      color:var(--text);
+    }
+    .brand-sub {
+      font-size:11.5px;
+      color:var(--muted);
+      letter-spacing:.22em;
+      margin-top:5px;
+      text-transform:uppercase;
+    }
+    .navlinks {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+    .navlinks a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 15px;
+      opacity:.9;
+    }
+    .navlinks a:hover { opacity:1; }
+    .hero {
+      position: relative;
+      min-height: 82vh;
+      border-radius: 38px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+    .hero img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(15,20,24,.70) 0%, rgba(15,20,24,.42) 44%, rgba(15,20,24,.10) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.00) 0%, rgba(0,0,0,.20) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-height: 82vh;
+      padding: 48px 42px;
+      max-width: 770px;
+      color: white;
+    }
+    .eyebrow {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+ .pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.16);
+  border: 1px solid rgba(255,255,255,.16);
+  backdrop-filter: blur(12px);
+  font-size: 14px;
+}
+
+.hero .eyebrow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+/* ===== HERO HIGHLIGHTS ===== */
+.hero .pill {
+  display: block;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  pointer-events: none;
+  cursor: default;
+
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,.96);
+  text-shadow: 0 2px 6px rgba(0,0,0,.22);
+
+  opacity: 0;
+  transform: translateY(8px);
+  animation: pillFade 0.7s cubic-bezier(.22,1,.36,1) forwards;
+}
+
+/* delay mai mare intre ele */
+.hero .pill:nth-child(1) { animation-delay: 0.2s; }
+.hero .pill:nth-child(2) { animation-delay: 0.8s; }
+.hero .pill:nth-child(3) { animation-delay: 1.4s; }
+
+@keyframes pillFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== HERO TITLE ===== */
+.hero h1 {
+  margin: 0 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(54px, 8vw, 92px); /* AICI e dimensiunea mare */
+  line-height: .90;
+  letter-spacing: -.04em;
+  max-width: 700px;
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: titleFade 0.9s cubic-bezier(.22,1,.36,1) forwards;
+  animation-delay: 2.1s;
+
+  text-shadow: 0 8px 30px rgba(0,0,0,.25);
+}
+
+@keyframes titleFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h1 {
+  margin: 0 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(54px, 8vw, 92px);
+  line-height: .90;
+  letter-spacing: -.04em;
+  max-width: 700px;
+}
+    .hero p {
+  margin: 0 0 22px;
+  font-size: 18px;
+  color: rgba(255,255,255,.92);
+  max-width: 620px;
+}
+
+.hero .actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 6px;
+
+  opacity: 0;
+  transform: translateY(16px);
+  animation: actionsFade 0.8s cubic-bezier(.22,1,.36,1) forwards;
+  animation-delay: 0.9s;
+}
+
+@media (max-width: 640px) {
+  .hero .actions {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px; 
+  }
+}
+@keyframes actionsFade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: transform .15s ease, box-shadow .15s ease;
+  box-shadow: none;
+}
+
+.btn:hover,
+.whatsapp-btn:hover,
+.stay-guide-actions a:hover,
+.sticky-cta a:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,.15);
+  text-decoration: none;
+}
+
+.btn.primary { background: white; color: var(--text); }
+    .btn.secondary {
+      background: rgba(255,255,255,.14);
+      border-color: rgba(255,255,255,.20);
+      color: white;
+      backdrop-filter: blur(14px);
+      box-shadow:none;
+    }
+    .btn.soft {
+      background: #f8f5ef;
+      color: var(--text);
+      border: 1px solid var(--line);
+      box-shadow:none;
+    }
+    .section {
+      margin-top: 22px;
+      padding: 26px;
+      border-radius: 32px;
+      background: var(--paper);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 30px rgba(0,0,0,.05);
+    }
+    .section h2 {
+      margin: 0 0 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      letter-spacing: -.03em;
+    }
+    .section-lead { color: var(--muted); max-width: 760px; margin-bottom: 18px; }
+    .grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 18px; }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: 0 8px 24px rgba(0,0,0,.04);
+    }
+    .span-12 { grid-column: span 12; }
+    .span-7 { grid-column: span 7; }
+    .span-5 { grid-column: span 5; }
+    .span-6 { grid-column: span 6; }
+    .span-4 { grid-column: span 4; }
+    .card h3 { margin: 0 0 10px; font-size: 22px; }
+    .muted { color: var(--muted); }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .stat {
+      padding: 18px;
+      border-radius: 22px;
+      background: #fcfaf6;
+      border: 1px solid var(--line);
+    }
+    .stat strong { display: block; font-size: 24px; margin-bottom: 4px; }
+    ul { margin: 8px 0 0 18px; padding: 0; }
+    li { margin-bottom: 8px; }
+    .amenities {
+      display:grid;
+      grid-template-columns: repeat(4,1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .amenity {
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:18px 16px;
+    }
+    .amenity .icon {
+      font-size:20px;
+      margin-bottom:10px;
+      display:block;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .photo {
+      overflow: hidden;
+      border-radius: 24px;
+      background: white;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(0,0,0,.04);
+    }
+    .photo img { width: 100%; height: 280px; object-fit: cover; display: block; }
+    .caption { padding: 14px 16px; font-weight: 700; }
+    .caption span { display: block; margin-top: 4px; color: var(--muted); font-weight: 500; }
+    .split {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .feature {
+      overflow: hidden;
+      min-height: 100%;
+      border-radius: 28px;
+      border: 1px solid var(--line);
+      box-shadow: 0 8px 24px rgba(0,0,0,.05);
+    }
+    .feature img { width: 100%; height: 100%; min-height: 420px; object-fit: cover; display: block; }
+    .mapbox {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .mapbox img {
+      width: 150px;
+      height: 150px;
+      border-radius: 20px;
+      background: white;
+      padding: 10px;
+      border: 1px solid var(--line);
+    }
+    .langs {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 14px;
+      margin-top: 14px;
+    }
+    .lang {
+      padding: 18px;
+      border-radius: 22px;
+      background: #fcfaf6;
+      border: 1px solid var(--line);
+    }
+    .cta-band {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      padding:22px 24px;
+      border-radius:28px;
+      background:linear-gradient(135deg, rgba(31,111,120,.95), rgba(196,154,83,.88));
+      color:#fff;
+      box-shadow: var(--shadow);
+    }
+    .cta-band h3 {
+      margin:0 0 4px;
+      font-size:28px;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .sticky-cta {
+  position:fixed;
+  left:18px;
+  right:18px;
+  bottom:0;
+  z-index:80;
+  display:none;
+  gap:12px;
+  padding:6px 8px;
+  background:rgba(255,255,255,.82);
+  backdrop-filter: blur(16px);
+  border:1px solid var(--line);
+  border-radius:20px 20px 0 0;
+  box-shadow:0 14px 34px rgba(0,0,0,.12);
+}
+.sticky-cta.hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  pointer-events: none;
+}
+    .sticky-cta a {
+  flex: 1;
+  display: flex;              /* 👈 IMPORTANT */
+  align-items: center;        /* 👈 vertical */
+  justify-content: center;    /* 👈 orizontal */
+  text-align: center;
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 14px;
+  padding: 10px 8px;
+}
+    .sticky-cta .map { background:#111; color:#fff; }
+    .sticky-cta .gallery-btn { background:#f4efe7; color:var(--text); }
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 22px 0 10px;
+      font-size: 14px;
+    }
+    @media (max-width: 1020px) {
+  .grid, .stats, .gallery, .langs, .split, .amenities { grid-template-columns: 1fr; }
+  .span-12, .span-7, .span-5, .span-6, .span-4 { grid-column: span 12; }
+  .hero, .hero-content { min-height: 72vh; }
+  .hero-content { padding: 28px; }
+  
+.nav {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px 12px;
+  border-radius: 16px;
+  gap: 8px;
+}
+
+.brand-mark {
+  width: 40px;
+  height: 40px;
+}
+
+.brand-title {
+  font-size: 14px;
+}
+
+.brand-sub {
+  font-size: 8px;
+  letter-spacing: .14em;
+  margin-top: 2px;
+}
+
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+}
+
+.navlinks a {
+  font-size: 13px;
+  padding: 2px 0;
+}
+
+  .photo img, .feature img { height: auto; min-height: 0; }
+
+  .cta-band {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-band .actions {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .cta-band .actions a {
+  width: 100%;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 700;
+  padding: 14px 22px;
+}
+
+  .sticky-cta { display:flex; }
+}
+  
+    .gallery .photo img { cursor: pointer; }
+    #lightbox {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0,0,0,.92);
+      z-index: 9999;
+      padding: 16px;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox .lb-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox img {
+      max-width: 94vw;
+      max-height: 84vh;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.35);
+      background: #fff;
+    }
+    #lightbox .lb-btn,
+    #lightbox .lb-close {
+      position: absolute;
+      border: none;
+      border-radius: 999px;
+      background: rgba(255,255,255,.18);
+      color: #fff;
+      cursor: pointer;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    #lightbox .lb-btn {
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px;
+      height: 52px;
+      font-size: 30px;
+      line-height: 1;
+    }
+    #lightbox .lb-prev { left: 10px; }
+    #lightbox .lb-next { right: 10px; }
+    #lightbox .lb-close {
+      top: 12px;
+      right: 12px;
+      width: 48px;
+      height: 48px;
+      font-size: 30px;
+      line-height: 1;
+    }
+    #lightbox .lb-caption {
+      position: absolute;
+      left: 50%;
+      bottom: 16px;
+      transform: translateX(-50%);
+      color: #fff;
+      background: rgba(0,0,0,.28);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 14px;
+      max-width: 90vw;
+      text-align: center;
+    }
+    @media (max-width: 700px) {
+      #lightbox { padding: 10px; }
+      #lightbox img { max-width: 96vw; max-height: 76vh; border-radius: 14px; }
+      #lightbox .lb-btn { width: 48px; height: 48px; font-size: 28px; }
+      #lightbox .lb-prev { left: 6px; }
+      #lightbox .lb-next { right: 6px; }
+      #lightbox .lb-caption { bottom: 10px; font-size: 13px; padding: 8px 12px; }
+    }
+
+  
+.gallery{
+  display:grid !important;
+  grid-template-columns:repeat(3, minmax(0, 1fr));
+  gap:16px;
+  align-items:start;
+}
+.photo{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:26px;
+  overflow:hidden;
+  box-shadow:0 8px 24px rgba(0,0,0,.04);
+  min-width:0;
+}
+.photo img{
+  width:100%;
+  height:240px;
+  object-fit:cover;
+  display:block;
+  cursor:pointer;
+}
+.caption{
+  padding:14px 16px;
+  font-weight:700;
+}
+.caption span{
+  display:block;
+  margin-top:4px;
+  color:var(--muted);
+  font-weight:500;
+}
+@media (max-width: 1020px){
+  .gallery{grid-template-columns:repeat(2, minmax(0, 1fr));}
+}
+@media (max-width: 640px){
+  .gallery{grid-template-columns:1fr;}
+}
+
+.whatsapp-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 12px 18px;
+  background: #25D366;
+  color: white;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.whatsapp-btn:hover {
+  background: #1ebe5d;
+}
+
+.whatsapp-float.hidden { opacity: 0; visibility: hidden; transform: translateY(10px); pointer-events: none; }
+.whatsapp-float { transition: opacity .25s ease, transform .25s ease, visibility .25s ease; }
+.whatsapp-float {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  text-decoration: none;
+}
+.whatsapp-float svg {
+  width: 28px;
+  height: 28px;
+  fill: #ffffff;
+  display: block;
+}
+@media (max-width: 640px) {
+  .whatsapp-float {
+    bottom: 90px;
+    right: 16px;
+    width: 54px;
+    height: 54px;
+  }
+}
+
+.wifi-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  flex-wrap:wrap;
+}
+
+.wifi-qr-wrap{
+  text-align:center;
+  flex:0 0 auto;
+  margin-top:8px;
+}
+
+.wifi-qr{
+  width:96px;
+  height:96px;
+  border-radius:14px;
+  background:#fff;
+  padding:6px;
+  border:1px solid var(--line);
+  box-shadow:0 8px 24px rgba(0,0,0,.05);
+}
+
+.wifi-qr-label{
+  font-size:13px;
+  margin-top:8px;
+  color:var(--muted);
+}
+
+@media (max-width:640px){
+  .wifi-box{
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .wifi-box > div:first-child{
+    width:100%;
+    text-align:left;
+  }
+
+  .wifi-qr-wrap{
+    width:100%;
+    text-align:center;
+  }
+}
+a {
+  color: #0a7cff;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.map-link {
+  font-size: 13px;
+  color: #6b8fbf;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 4px;
+  padding: 4px 0;
+}
+
+.map-link::before {
+  content: "📍";
+  font-size: 14px;
+}
+
+.map-link:hover {
+  text-decoration: underline;
+}
+.desc {
+  font-size: 12px;
+  color: #777;
+}
+
+/* Premium alignment for restaurants + local tips only */
+#restaurants li,
+.local-tips li,
+#local-tips li {
+  margin-bottom: 14px;
+}
+
+#restaurants li .desc,
+.local-tips li .desc,
+#local-tips li .desc {
+  display: block;
+  margin-top: 4px;
+  margin-left: 14px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: #777;
+}
+
+#restaurants li .map-link,
+.local-tips li .map-link,
+#local-tips li .map-link {
+  display: inline-block;
+  margin-top: 4px;
+  margin-left: 14px;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+</style>
+<style>
+
+/* Show while scrolling, hide when scrolling stops */
+.reader-auto-hide-target {
+  transition: transform 0.45s ease, opacity 0.45s ease;
+  will-change: transform, opacity;
+}
+
+.reader-hidden-top {
+  transform: translateY(-18px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.reader-hidden-bottom {
+  transform: translateY(18px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+</style>
+<style>
+
+/* Premium interaction for stay-guide actions */
+.stay-guide-link,
+.stay-guide-actions a {
+  transition: background-color .22s ease, color .22s ease, border-color .22s ease, transform .12s ease, box-shadow .22s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.stay-guide-link:hover,
+.stay-guide-actions a:hover {
+  text-decoration: none !important;
+}
+.stay-guide-link:active,
+.stay-guide-actions a:active {
+  transform: translateY(1px);
+}
+
+</style>
+<style>
+
+/* Mobile-only tap effect (no other changes) */
+@media (hover: none) and (pointer: coarse) {
+  .stay-guide-actions a {
+    transition: all 0.2s ease;
+  }
+
+  .stay-guide-actions a:active {
+    transform: scale(0.97);
+    background: #f0f0f0 !important;
+  }
+}
+
+</style>
+<style>
+
+/* Uniform spacing for restaurants & local tips */
+.restaurant-item,
+.local-tips li {
+  margin-bottom: 16px !important;
+}
+
+.restaurant-item p,
+.local-tips li span {
+  margin: 4px 0 !important;
+  line-height: 1.4 !important;
+}
+
+/* Compact header */
+header, .header, .top-card {
+  padding: 12px 16px !important;
+}
+
+header h1, .top-card h1 {
+  font-size: 18px !important;
+  margin-bottom: 6px !important;
+}
+
+header p, .top-card p {
+  font-size: 13px !important;
+  margin: 2px 0 !important;
+}
+
+</style>
+<style>
+/* Global mobile polish - spacing only */
+@media (max-width: 640px) {
+  section, .section, .card, .content-box {
+    margin-bottom: 18px !important;
+  }
+
+  .section, .card, .content-box {
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+
+  h2 {
+    margin-bottom: 10px !important;
+    line-height: 1.25 !important;
+  }
+
+  h3 {
+    margin-bottom: 8px !important;
+    line-height: 1.25 !important;
+  }
+
+  p, li {
+    line-height: 1.5 !important;
+  }
+
+  ul {
+    padding-left: 18px !important;
+    margin-top: 8px !important;
+    margin-bottom: 0 !important;
+  }
+
+  .desc {
+    margin-top: 3px !important;
+    margin-bottom: 3px !important;
+  }
+
+  .map-link {
+    margin-top: 4px !important;
+  }
+
+  .wifi-box {
+    gap: 10px !important;
+    align-items: center !important;
+  }
+
+  .wifi-qr {
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  .gallery img, .photo img {
+    border-radius: 14px !important;
+  }
+}
+</style>
+<style>
+
+  body {
+  line-height: 1.5 !important;
+}
+
+</style>
+<style>
+#welcome p {
+  margin: 8px 0;
+}
+
+/* ===== CONTACT FINAL COMPACT ===== */
+.contact-card hr{
+  border:none;
+  border-top:1px solid rgba(32,37,45,.10);
+  margin:10px 0;
+}
+
+.contact-main{
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+}
+
+.contact-line{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:0;
+}
+
+.contact-icon{
+  width:22px;
+  text-align:center;
+  font-size:18px;
+  flex:0 0 22px;
+}
+
+.contact-text{
+  font-size:17px;
+  line-height:1.35;
+}
+
+.contact-text.strong{
+  font-weight:700;
+}
+
+.contact-block{
+  margin-top:0;
+}
+
+.contact-block h3{
+  margin:0 0 4px;
+  font-size:20px;
+  line-height:1.2;
+}
+
+.place{
+  margin:0 0 3px;
+  font-size:17px;
+  line-height:1.3;
+  font-weight:500;
+}
+
+.desc{
+  margin:0 0 3px;
+  font-size:13px;
+  line-height:1.3;
+  color:var(--muted);
+}
+
+.contact-map{
+  display:inline-block;
+  margin-top:1px;
+  font-size:14px;
+  color:#6d7ea0;
+  text-decoration:none;
+}
+
+.contact-map:hover{
+  text-decoration:underline;
+}
+
+.contact-note{
+  margin:4px 0 8px;
+  font-size:15px;
+  color:#5f6670;
+  line-height:1.4;
+}
+
+.clean-wa{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  width:100%;
+  padding:14px;
+  background:#25D366;
+  color:#fff !important;
+  font-weight:700;
+  font-size:17px;
+  border-radius:16px;
+  text-decoration:none !important;
+  box-shadow:0 8px 18px rgba(37,211,102,.16);
+}
+</style>
+<style id="hero-integration-fix">
+/* Better hero framing + cinematic zoom while keeping original layout */
+.hero {
+  min-height: 78vh;
+}
+
+.hero img {
+  object-fit: cover;
+  object-position: center 62%;
+  transform: scale(1.06);
+  transform-origin: center center;
+  animation: heroCinematicZoom 12s ease-out forwards;
+  will-change: transform;
+}
+
+.hero-content {
+  min-height: 78vh;
+}
+
+@keyframes heroCinematicZoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1.05);
+  }
+}
+
+@media (max-width: 1020px) {
+  .hero,
+  .hero-content {
+    min-height: 70vh;
+  }
+
+  .hero img {
+    object-position: center 56%;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero,
+  .hero-content {
+    min-height: 66vh;
+  }
+
+  .hero img {
+    object-position: center 52%;
+  }
+}
+</style>
+<style id="hero-final-preview">
+.hero img {
+  object-fit: cover;
+  object-position: center 62%;
+  transform: scale(1.05);
+  animation: heroZoom 10s ease-out forwards;
+}
+@keyframes heroZoom {
+  from { transform: scale(1.08); }
+  to { transform: scale(1.05); }
+}
+@media (max-width: 640px) {
+  .hero img { object-position: center 52%; }
+}
+</style>
+<style id="restaurants-premium">
+#restaurants .span-6:first-child {
+  border-right: 1px solid rgba(0,0,0,0.08);
+  padding-right: 18px;
+}
+
+#restaurants .span-6:last-child {
+  padding-left: 18px;
+}
+
+#restaurants h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+#restaurants h3::after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 2px;
+  background: var(--gold);
+  margin-top: 6px;
+  border-radius: 2px;
+}
+
+@media (max-width: 1020px) {
+  #restaurants .span-6:first-child {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  #restaurants .span-6:last-child {
+    padding-left: 0;
+  }
+}
+</style>
+<style id="restaurants-separation-refine">
+#restaurants h3 {
+  font-size: 20px;
+  margin-bottom: 12px;
+  letter-spacing: 0.02em;
+}
+
+#restaurants .span-6:first-child h3::after {
+  background: var(--gold);
+}
+
+#restaurants .span-6:last-child h3::after { background: var(--gold); }
+
+#restaurants .span-6 {
+  padding-top: 4px;
+}
+</style>
+<style id="restaurants-final-fix">
+/* Make each column look like its own card */
+#restaurants .span-6 {
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 18px;
+  padding: 18px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Space between the two cards */
+#restaurants .grid {
+  gap: 20px;
+}
+
+/* Hover removed */
+
+/* Restaurant list items */
+#restaurants li {
+  transition: background 0.2s ease;
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+
+/* Mobile keep clean */
+@media (max-width:1020px){
+  #restaurants .span-6 {
+    padding: 14px;
+  }
+}
+</style>
+<style id="list-spacing-fix">
+#restaurants li {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+</style>
+<style id="clean-lists-final">
+.clean-list {
+  margin-top: 10px;
+}
+
+.clean-list .item {
+  margin-bottom: 16px;
+}
+
+.clean-list .item strong {
+  display: block;
+}
+
+.clean-list .item .muted {
+  font-size: 14px;
+  opacity: .7;
+  margin: 4px 0;
+}
+</style>
+<style id="local-tips-real-right-shift">
+/* Move ONLY Local tips content to the right inside its card */
+#restaurants .span-6:last-child h3,
+#restaurants .span-6:last-child .clean-list {
+  margin-left: 16px !important;
+}
+
+/* Keep mobile consistent too */
+@media (max-width: 1020px){
+  #restaurants .span-6:last-child h3,
+  #restaurants .span-6:last-child .clean-list {
+    margin-left: 16px !important;
+  }
+}
+</style>
+<style id="local-tips-compact-spacing">
+/* Compact spacing ONLY for Local Tips (right column) */
+#restaurants .span-6:last-child .clean-list .item {
+  margin-bottom: 10px !important;
+}
+
+#restaurants .span-6:last-child .clean-list .item strong {
+  margin-bottom: 2px !important;
+  line-height: 1.2 !important;
+}
+
+#restaurants .span-6:last-child .clean-list .muted {
+  margin: 2px 0 !important;
+  line-height: 1.35 !important;
+}
+
+#restaurants .span-6:last-child .clean-list a {
+  margin-top: 2px !important;
+  display: inline-block;
+}
+
+#restaurants .span-6:last-child .clean-list {
+  gap: 6px !important;
+}
+</style>
+<style id="restaurants-compact-spacing">
+/* Compact spacing for LEFT column (Where to eat) */
+#restaurants .span-6:first-child .clean-list .item {
+  margin-bottom: 10px !important;
+}
+
+#restaurants .span-6:first-child .clean-list .item strong {
+  margin-bottom: 2px !important;
+  line-height: 1.2 !important;
+}
+
+#restaurants .span-6:first-child .clean-list .muted {
+  margin: 2px 0 !important;
+  line-height: 1.35 !important;
+}
+
+#restaurants .span-6:first-child .clean-list a {
+  margin-top: 2px !important;
+  display: inline-block;
+}
+
+#restaurants .span-6:first-child .clean-list {
+  gap: 6px !important;
+}
+</style>
+<style id="btn-compact-fix">
+.hero .btn {
+  font-size: 14px;
+}
+</style>
+<style id="hero-buttons-inline">
+.hero .actions {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 10px;
+}
+
+@media (max-width: 640px) {
+  .hero .actions {
+    flex-wrap: wrap;
+  }
+}
+</style>
+<style id="hero-buttons-last-cascade">
+/* Make hero buttons appear AFTER the text cascade */
+.hero .actions {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: actionsFade 0.8s cubic-bezier(.22,1,.36,1) forwards !important;
+  animation-delay: 2.9s !important;
+}
+</style>
+<style id="brand-final-clean">
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-text {
+  flex: 1;
+  text-align: center;
+  margin-right: 48px;
+}
+
+.brand-title {
+  font-size: 24px;
+  letter-spacing: 2.8px;
+  white-space: nowrap;
+}
+
+.brand-sub {
+  font-size: 12.5px;
+  letter-spacing: 1.2px;
+}
+</style>
+<style id="navlinks-bigger-fitted">
+/* Keep navbar slim, only make the nav texts larger and better fitted */
+@media (max-width: 1020px) {
+  .navlinks {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 8px !important;
+  }
+
+  .navlinks a {
+    font-size: 15px !important;
+    line-height: 1.1;
+    padding: 0 !important;
+    white-space: nowrap;
+  }
+}
+</style>
+<style id="hero-nav-visual-integration-from-brut">
+/* Hero-matched top bar: keep original behavior, improve visual connection */
+.wrap {
+  padding-top: 0;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  margin-bottom: -86px;
+  margin-left: 0;
+  margin-right: 0;
+  border-radius: 0 0 28px 28px;
+  background: #ebe5df;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: 1px solid rgba(32,37,45,.10);
+  box-shadow: 0 10px 26px rgba(0,0,0,.08);
+}
+
+.hero {
+  margin-top: -8px;
+}
+
+.hero-content {
+  padding-top: 148px;
+}
+
+@media (max-width: 1020px) {
+  .nav {
+    margin-bottom: -94px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0 0 24px 24px;
+  }
+
+  .hero-content {
+    padding-top: 150px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav {
+    margin-bottom: -104px;
+    margin-left: 0;
+    margin-right: 0;
+    border-radius: 0 0 20px 20px;
+  }
+
+  .hero-content {
+    padding-top: 158px;
+  }
+}
+
+.nav {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: navFadeIn 0.8s cubic-bezier(.22,1,.36,1) forwards;
+  animation-delay: 2.9s;
+}
+
+@keyframes navFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Keep hero-button intro, then let old hide/show fully control the top bar */
+#readerTopBar.reader-hidden-top {
+  transform: translateY(-18px) !important;
+  opacity: 0 !important;
+  pointer-events: none;
+}
+#readerTopBar[data-intro-done="true"].reader-auto-hide-target:not(.reader-hidden-top) {
+  opacity: 1;
+}
+</style>
+<style id="discover-tenerife-compact-fix">
+.discover-band{
+  padding: 18px 22px;
+  gap: 12px;
+}
+.discover-band h3{
+  white-space: nowrap;
+  font-size: 24px;
+  margin: 0 0 2px;
+}
+.discover-band > div:first-child{
+  min-width: 0;
+}
+.discover-band > div:first-child > div{
+  line-height: 1.35;
+}
+.discover-band .actions{
+  margin-top: 0;
+}
+.discover-band .btn{
+  padding: 9px 14px;
+}
+@media (max-width: 640px){
+  .discover-band{
+    padding: 16px 18px;
+    gap: 10px;
+  }
+  .discover-band h3{
+    font-size: 22px;
+  }
+}
+</style>
+<style>
+.footer-brand {
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+}
+.footer .brand-mark {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+</style><style>
+.footer {
+  padding: 12px 0 6px;
+}
+.footer-brand {
+  margin-top: 6px;
+  margin-bottom: 2px;
+}
+</style></head>
+<body>
+<div class="wrap">
+<div class="nav" id="readerTopBar">
+<div class="brand">
+<div aria-hidden="true" class="brand-mark">
+<svg fill="none" height="30" viewbox="0 0 64 64" width="30" xmlns="http://www.w3.org/2000/svg">
+<circle cx="46" cy="18" fill="#c49a53" fill-opacity="0.95" r="6.5"></circle>
+<path d="M17 42.5C22 39.5 27.5 39.5 33 42.5C38.5 45.5 44 45.5 49 42.5" stroke="#1f6f78" stroke-linecap="round" stroke-width="3.2"></path>
+<path d="M15 49.5C21 46.5 28 46.5 34 49.5C40 52.5 46 52.5 51 49.5" opacity="0.75" stroke="#1f6f78" stroke-linecap="round" stroke-width="2.4"></path>
+<path d="M23 40C22.7 32.5 24.8 25.5 29.8 20.8" stroke="#20252d" stroke-linecap="round" stroke-width="2.4"></path>
+<path d="M30 20.5C28.5 17.4 26.2 14.9 22.8 13.2" stroke="#20252d" stroke-linecap="round" stroke-width="2.2"></path>
+<path d="M30.5 23C31.1 19.2 33.1 15.8 36.3 13.1" stroke="#20252d" stroke-linecap="round" stroke-width="2.2"></path>
+<path d="M29.2 24.5C26.4 22.8 23.2 22.1 19.8 22.5" stroke="#20252d" stroke-linecap="round" stroke-width="2.2"></path>
+<path d="M30.4 24.5C34 23.6 37.5 24 40.8 25.7" stroke="#20252d" stroke-linecap="round" stroke-width="2.2"></path>
+</svg>
+</div>
+<div class="brand-text">
+<div class="brand-title">PORT ROYALE</div>
+<div class="brand-sub">Apartment 285</div>
+</div>
+</div>
+<div class="navlinks">
+<a href="#stay">Stay info</a>
+<a href="#gallery">Gallery</a>
+<a href="#restaurants">Local tips</a>
+<a href="#rules">House rules</a>
+</div>
+</div>
+<section class="hero">
+<picture><source srcset="hero.webp" type="image/webp"/><img alt="Port Royale Apartment 285 pool view terrace" decoding="async" fetchpriority="high" loading="eager" src="hero.jpg"/></picture>
+<div class="hero-content">
+<div class="eyebrow">
+<span class="pill">Poolside Living</span>
+<span class="pill">Private Terrace Access</span>
+<span class="pill">Los Cristianos</span>
+</div>
+<h1>Relax in style by the pool</h1>
+<p>Modern, peaceful and perfectly located in Port Royale — ideal for a relaxing and comfortable Tenerife stay.</p>
+<div class="actions">
+<a class="btn primary" href="https://maps.google.com/?q=Calle+Sierra+Nevada+4,+38650+Los+Cristianos,+Tenerife,+Spain" target="_blank">View map</a>
+<a class="btn secondary" href="#gallery">View gallery</a>
+</div>
+</div>
+</section>
+<section class="section" id="stay">
+<h2>Stay information</h2>
+<p><strong>Check-in:</strong> 16:00 – 22:00<br/>
+<strong>Check-out:</strong> 08:00 – 11:00</p>
+<p><strong>Address:</strong><br/>
+Port Royale – Apartment 285<br/>
+Calle Sierra Nevada, 4<br/>
+38650 Los Cristianos<br/>
+Arona, Tenerife, Spain</p>
+<p><strong>Ideal for:</strong> couples, privacy, comfort and relaxation.</p>
+</section>
+<section class="section" id="welcome">
+<h2>Welcome</h2>
+<p>We’re delighted to have you at <strong>Port Royale Apartment</strong> 🌴.</p>
+<p>This guide will help you enjoy your stay and easily find everything you need.</p>
+</section>
+<section class="section">
+<h2>WiFi</h2>
+<div class="wifi-box">
+<div>
+      Stay connected during your stay:<br/><br/>
+      📶 <strong>Network:</strong> PortRoyale<br/>
+      🔑 <strong>Password:</strong> 11926726
+    </div>
+<div class="wifi-qr-wrap">
+<picture><source srcset="embedded_image_2.webp" type="image/webp"/><img alt="WiFi QR" class="wifi-qr" decoding="async" loading="lazy" src="embedded_image_2.png"/></picture>
+<div class="wifi-qr-label">Scan to connect</div>
+</div>
+</div>
+</section>
+<section class="section contact-card">
+<h2>Contact</h2>
+<div class="contact-main">
+<div class="contact-line">
+<span class="contact-icon">👤</span>
+<span class="contact-text strong">Catalina Maria Vlad</span>
+</div>
+<div class="contact-line">
+<span class="contact-icon">✉️</span>
+<span class="contact-text">catalinavlad1@yahoo.com</span>
+</div>
+<div class="contact-line">
+<span class="contact-icon">📞</span>
+<span class="contact-text">+34 663 94 69 45</span>
+</div>
+</div>
+<hr/>
+<div class="contact-block">
+<h3>Pharmacy:</h3>
+<p class="place">Farmacia La Fuente - Lcdo José Manuel Afonso Catalán</p>
+<p class="desc">nearby pharmacy, helpful for essentials</p>
+<div class="contact-line">
+<span class="contact-icon">📞</span>
+<span class="contact-text">+34 922 79 50 25</span>
+</div>
+<a class="map-link clean" href="https://share.google/4JErO3saghlcQaHhf" target="_blank">
+      View on Google Maps
+    </a>
+</div>
+<hr/>
+<div class="contact-block">
+<h3>Nearest medical center:</h3>
+<p class="place">Centro de Salud Los Cristianos</p>
+<p class="desc">public medical center nearby</p>
+<div class="contact-line">
+<span class="contact-icon">📞</span>
+<span class="contact-text">+34 922 787 840</span>
+</div>
+<a class="map-link clean" href="https://share.google/4GeCADiEMo9B1gT08" target="_blank">
+      View on Google Maps
+    </a>
+</div>
+<hr/>
+<p class="contact-note">If you need anything, feel free to message anytime.</p>
+<a class="whatsapp-btn" href="https://wa.me/34663946945" target="_blank">
+<svg aria-hidden="true" height="22" viewbox="0 0 32 32" width="22">
+<path d="M16 .4C7.4.4.4 7.3.4 16c0 2.8.7 5.4 2 7.8L.4 31.6l8-2c2.3 1.2 4.8 1.8 7.6 1.8 8.6 0 15.6-6.9 15.6-15.6S24.6.4 16 .4zm0 28.6c-2.4 0-4.7-.6-6.7-1.8l-.5-.3-4.7 1.2 1.2-4.6-.3-.5c-1.3-2-2-4.3-2-6.8 0-7.2 5.8-13 13-13s13 5.8 13 13-5.8 13-13 13zm7.3-9.7c-.4-.2-2.3-1.1-2.6-1.2-.4-.1-.6-.2-.9.2-.2.4-1 1.2-1.2 1.4-.2.2-.5.3-.9.1-.4-.2-1.6-.6-3-1.9-1.1-1-1.9-2.2-2.1-2.6-.2-.4 0-.6.2-.8.2-.2.4-.5.6-.7.2-.2.2-.4.3-.6.1-.2 0-.5 0-.7 0-.2-.9-2.1-1.2-2.9-.3-.7-.6-.6-.9-.6h-.8c-.2 0-.6.1-.9.5-.3.4-1.2 1.2-1.2 3s1.3 3.5 1.5 3.7c.2.2 2.6 4 6.3 5.4.9.4 1.6.6 2.2.8.9.3 1.8.2 2.4.1.7-.1 2.3-.9 2.6-1.8.3-.9.3-1.6.2-1.8-.1-.2-.3-.3-.7-.5z" fill="currentColor"></path>
+</svg>
+    Message us on WhatsApp
+  </a>
+</section>
+<section class="section" id="gallery">
+<h2>Gallery</h2>
+<div class="gallery">
+<div class="photo">
+<picture><source srcset="embedded_image_3.webp" type="image/webp"/><img alt="Sunset vibes" class="gallery-item" data-caption="Sunset vibes — Beautiful evening atmosphere near the beach" decoding="async" loading="lazy" src="embedded_image_3.jpg"/></picture>
+<div class="caption">Sunset vibes<span>Beautiful evening atmosphere near the beach</span></div>
+</div>
+<div class="photo">
+<picture><source srcset="embedded_image_4.webp" type="image/webp"/><img alt="Beach nearby" class="gallery-item" data-caption="Beach nearby — Sunny coastline just a short walk away" decoding="async" loading="lazy" src="embedded_image_4.png"/></picture>
+<div class="caption">Beach nearby<span>Sunny coastline just a short walk away</span></div>
+</div>
+<div class="photo">
+<picture><source srcset="embedded_image_5.webp" type="image/webp"/><img alt="Courtyard &amp; pool area" class="gallery-item" data-caption="Courtyard &amp; pool area — Relaxing shared space inside the complex" decoding="async" loading="lazy" src="embedded_image_5.png"/></picture>
+<div class="caption">Courtyard &amp; pool area<span>Relaxing shared space inside the complex</span></div>
+</div>
+<div class="photo">
+<picture><source srcset="embedded_image_6.webp" type="image/webp"/><img alt="Main pool" class="gallery-item" data-caption="Main pool — Perfect for a sunny day at Port Royale" decoding="async" loading="lazy" src="embedded_image_6.png"/></picture>
+<div class="caption">Main pool<span>Perfect for a sunny day at Port Royale</span></div>
+</div>
+<div class="photo">
+<picture><source srcset="embedded_image_7.webp" type="image/webp"/><img alt="Kitchen" class="gallery-item" data-caption="Kitchen — Fully equipped for your stay" decoding="async" loading="lazy" src="embedded_image_7.jpg"/></picture>
+<div class="caption">Kitchen<span>Fully equipped for your stay</span></div>
+</div>
+<div class="photo">
+<picture><source srcset="embedded_image_8.webp" type="image/webp"/><img alt="Living room" class="gallery-item" data-caption="Living room — Bright, modern and comfortable" decoding="async" loading="lazy" src="embedded_image_8.jpg"/></picture>
+<div class="caption">Living room<span>Bright, modern and comfortable</span></div>
+</div>
+</div>
+</section>
+<section class="section" id="restaurants">
+<h2>Local recommendations</h2>
+<div class="grid">
+<div class="span-6">
+<h3>Where to eat</h3>
+<div class="clean-list">
+<div class="item">
+<strong>El Cine</strong>
+<div class="muted">Local seafood favorite right by the harbor - simple, authentic, and delicious</div>
+<a class="map-link" href="https://share.google/RRNJZCBXrJjwlbTXH" target="_blank">View on Google Maps</a>
+</div>
+<div class="item">
+<strong>Taurus Argentine Steak House &amp; Italian Cuisine</strong>
+<div class="muted">Perfect for a great steak dinner and relaxed evening</div>
+<a class="map-link" href="https://share.google/uhV3djZwhoyEOlqt7" target="_blank">View on Google Maps</a>
+</div>
+<div class="item">
+<strong>Damian's Bar &amp; Tapas</strong>
+<div class="muted">Great for tapas and drinks in a lively atmosphere</div>
+<a class="map-link" href="https://share.google/BQ7qixImJ7ZqfWtxF" target="_blank">View on Google Maps</a>
+</div>
+<div class="item">
+<strong>Panaria</strong>
+<div class="muted">Ideal for breakfast, coffee, and fresh pastries</div>
+<a class="map-link" href="https://share.google/XgOB9Ldfb7CJkVLz2" target="_blank">View on Google Maps</a>
+</div>
+<div class="item">
+<strong>La Piazzetta</strong>
+<div class="muted">Reliable Italian option</div>
+<a class="map-link" href="https://share.google/SclJlFDwD7NGzhzPW" target="_blank">View on Google Maps</a>
+</div>
+</div>
+</div>
+<div class="span-6">
+<h3>Local tips</h3>
+<div class="clean-list">
+<div class="item">
+<strong>Best beach: Playa de las Vistas</strong>
+<div class="muted">Wide sandy beach, calm water</div>
+<a class="map-link" href="https://www.tripadvisor.com/Attraction_Review-g659661-d2477533-Reviews-Playa_de_las_Vistas-Los_Cristianos_Arona_Tenerife_Canary_Islands.html" target="_blank">View on TripAdvisor</a>
+</div>
+<div class="item">
+<strong>Best sunset: Los Cristianos harbour</strong>
+<div class="muted">Best sunset spot in the area</div>
+<a class="map-link" href="https://share.google/cahOu3QxKf3rliuwt" target="_blank">View on Google Maps</a>
+</div>
+<div class="item">
+<strong>Supermarket nonstop</strong>
+<div class="muted">Open late, quick essentials</div>
+<a class="map-link" href="https://share.google/6tyJefO7nvn6MTFKg" target="_blank">View on Google Maps</a>
+</div>
+<div class="item">
+<strong>Biggest supermarket</strong>
+<div class="muted">Large store with everything you need</div>
+<a class="map-link" href="https://maps.app.goo.gl/u3x9daLEUXm29Whp7?g_st=aw" target="_blank">View on Google Maps</a>
+</div>
+<div class="item">
+<strong>Car rental: Cicar Alquiler de Coches</strong>
+<div class="muted">Pick-up available at the airport</div>
+<a class="map-link" href="https://www.cicar.com/" target="_blank">Visit their website</a>
+</div>
+<div class="item">
+<strong>Car rental: Voltencar Las Américas</strong>
+<div class="muted">Pick-up in Las Americas</div>
+<a class="map-link" href="https://share.google/mrOd09KCbYbyZyC8N" target="_blank">View on Google Maps</a>
+</div>
+<div class="item">
+<strong>Taxi: Use local taxis (most reliable option)</strong>
+<div class="muted">Ask us if needed</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="rules">
+<h2>Pool &amp; House Rules</h2>
+<div class="grid">
+<div class="card span-6">
+<h3>Pool Rules</h3>
+<ul>
+<li><strong>Pool hours:</strong> 09:00 – 19:00</li>
+<li><strong>Maximum capacity:</strong> 20 persons</li>
+<li>No diving or running around the pool area</li>
+<li>No glass, bottles, food or loud music near the pool</li>
+<li>No reserving sunbeds</li>
+<li>No animals in the pool area</li>
+<li>Children must be supervised at all times</li>
+<li>Please shower before entering the pool</li>
+</ul>
+</div>
+<div class="card span-6">
+<h3>House Rules</h3>
+<ul>
+<li>Please keep noise levels low and respect neighbors.</li>
+<li>Parties or events are strictly not allowed.</li>
+<li>Household waste must not be left inside the complex. Please dispose of it in the designated bins outside.</li>
+<li>Please keep all common areas clean.</li>
+</ul>
+</div>
+</div>
+</section>
+<section class="section">
+<div class="cta-band discover-band">
+<div>
+<h3>Discover Tenerife</h3>
+<div style="opacity:.92;">Explore the island, discover great places nearby and enjoy everything Tenerife has to offer.</div>
+</div>
+<div class="actions">
+<a class="btn primary" href="https://www.saltinourhair.com/spain/things-to-do-tenerife/?utm_source=chatgpt.com" target="_blank">See 16 things to do in Tenerife</a>
+</div>
+</div>
+</section>
+<section class="section">
+<h2>Short multilingual welcome</h2>
+<div class="langs">
+<div class="lang">
+<h3>🇬🇧 English</h3>
+<div>Welcome to our modern pool view apartment in Port Royale. We wish you a relaxing and memorable stay.</div>
+</div>
+<div class="lang">
+<h3>🇪🇸 Español</h3>
+<div>Bienvenido a nuestro apartamento moderno con vista a la piscina en Port Royale. Le deseamos una estancia relajante e inolvidable.</div>
+</div>
+<div class="lang">
+<h3>🇫🇷 Français</h3>
+<div>Bienvenue dans notre appartement moderne avec vue sur la piscine à Port Royale. Nous vous souhaitons un séjour agréable et inoubliable.</div>
+</div>
+</div>
+</section>
+<div class="footer">
+  Port Royale Apartment 285 · Premium mini-site
+
+<div class="footer-brand"><div class="brand-mark">
+<svg fill="none" height="30" viewbox="0 0 64 64" width="30" xmlns="http://www.w3.org/2000/svg">
+<circle cx="46" cy="18" fill="#c49a53" fill-opacity="0.95" r="6.5"></circle>
+<path d="M17 42.5C22 39.5 27.5 39.5 33 42.5C38.5 45.5 44 45.5 49 42.5" stroke="#1f6f78" stroke-linecap="round" stroke-width="3.2"></path>
+<path d="M15 49.5C21 46.5 28 46.5 34 49.5C40 52.5 46 52.5 51 49.5" opacity="0.75" stroke="#1f6f78" stroke-linecap="round" stroke-width="2.4"></path>
+<path d="M23 40C22.7 32.5 24.8 25.5 29.8 20.8" stroke="#20252d" stroke-linecap="round" stroke-width="2.4"></path>
+<path d="M30 20.5C28.5 17.4 26.2 14.9 22.8 13.2" stroke="#20252d" stroke-linecap="round" stroke-width="2.2"></path>
+<path d="M30.5 23C31.1 19.2 33.1 15.8 36.3 13.1" stroke="#20252d" stroke-linecap="round" stroke-width="2.2"></path>
+<path d="M29.2 24.5C26.4 22.8 23.2 22.1 19.8 22.5" stroke="#20252d" stroke-linecap="round" stroke-width="2.2"></path>
+<path d="M30.4 24.5C34 23.6 37.5 24 40.8 25.7" stroke="#20252d" stroke-linecap="round" stroke-width="2.2"></path>
+</svg>
+</div></div></div>
+</div>
+<div class="sticky-cta hidden" id="readerBottomBar">
+<a class="map" href="https://maps.google.com/?q=Calle+Sierra+Nevada+4,+38650+Los+Cristianos,+Tenerife,+Spain" target="_blank">Open map</a>
+<a class="gallery-btn" href="#gallery">Gallery</a>
+</div>
+<div aria-hidden="true" id="lightbox">
+<div class="lb-inner">
+<button aria-label="Close" class="lb-close" type="button">×</button>
+<button aria-label="Previous image" class="lb-btn lb-prev" type="button">‹</button>
+<img alt="Expanded gallery image" decoding="async" id="lightbox-image" loading="lazy" src=""/>
+<button aria-label="Next image" class="lb-btn lb-next" type="button">›</button>
+<div class="lb-caption" id="lightbox-caption"></div>
+</div>
+</div>
+<script>
+(function(){
+  const images = Array.from(document.querySelectorAll('#gallery .gallery-item'));
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const prevBtn = lightbox.querySelector('.lb-prev');
+  const nextBtn = lightbox.querySelector('.lb-next');
+  const closeBtn = lightbox.querySelector('.lb-close');
+  let currentIndex = 0;
+
+  function showImage(index){
+    currentIndex = (index + images.length) % images.length;
+    const img = images[currentIndex];
+    lightboxImage.src = img.src;
+    lightboxImage.alt = img.alt || 'Gallery image';
+    lightboxCaption.textContent = img.dataset.caption || img.alt || '';
+  }
+
+  function openLightbox(index){
+    showImage(index);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  images.forEach((img, index) => {
+    img.addEventListener('click', () => openLightbox(index));
+  });
+
+  prevBtn.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex - 1); });
+  nextBtn.addEventListener('click', (e) => { e.stopPropagation(); showImage(currentIndex + 1); });
+  closeBtn.addEventListener('click', (e) => { e.stopPropagation(); closeLightbox(); });
+  lightbox.addEventListener('click', closeLightbox);
+  lightboxImage.addEventListener('click', (e) => e.stopPropagation());
+
+  document.addEventListener('keydown', (e) => {
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') closeLightbox();
+    if(e.key === 'ArrowLeft') showImage(currentIndex - 1);
+    if(e.key === 'ArrowRight') showImage(currentIndex + 1);
+  });
+
+  let touchStartX = 0;
+  lightbox.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, {passive:true});
+  lightbox.addEventListener('touchend', (e) => {
+    const diff = e.changedTouches[0].screenX - touchStartX;
+    if(Math.abs(diff) < 40) return;
+    if(diff > 0) showImage(currentIndex - 1);
+    else showImage(currentIndex + 1);
+  }, {passive:true});
+})();
+</script>
+<script>
+(function () {
+  const btn = document.querySelector('.whatsapp-float');
+  if (!btn) return;
+
+  function toggleWhatsapp() {
+    if (window.scrollY > 320) {
+      btn.classList.remove('hidden');
+    } else {
+      btn.classList.add('hidden');
+    }
+  }
+
+  window.addEventListener('scroll', toggleWhatsapp, { passive: true });
+  toggleWhatsapp();
+})();
+</script>
+<script>
+(function () {
+ let hideTimer = null;
+let topTarget = null;
+let bottomTarget = null;
+let activated = false;
+const threshold = 90;
+
+  function area(rect) {
+    return Math.max(0, rect.width) * Math.max(0, rect.height);
+  }
+
+  function getCandidates() {
+    return Array.from(document.querySelectorAll('body *')).filter(el => {
+      const style = window.getComputedStyle(el);
+      if (!(style.position === 'fixed' || style.position === 'sticky')) return false;
+      const rect = el.getBoundingClientRect();
+      if (rect.width < window.innerWidth * 0.45) return false;
+      if (rect.height < 40 || rect.height > window.innerHeight * 0.35) return false;
+      return true;
+    });
+  }
+
+  function getHeroBottomTrigger() {
+    const hero = document.querySelector('.hero');
+    if (!hero) return threshold;
+    const rect = hero.getBoundingClientRect();
+    return Math.max(threshold, rect.bottom + window.scrollY - 24);
+  }
+
+  function isPastHero() {
+    return window.scrollY > getHeroBottomTrigger();
+  }
+
+  function findTargets() {
+    const explicitTop = document.getElementById('readerTopBar');
+    const explicitBottom = document.getElementById('readerBottomBar');
+
+    topTarget = explicitTop || null;
+    bottomTarget = explicitBottom || null;
+
+    if (!topTarget || !bottomTarget) {
+      const candidates = getCandidates();
+
+      const topCandidates = candidates
+        .filter(el => el.getBoundingClientRect().top <= 80)
+        .sort((a, b) => area(a.getBoundingClientRect()) - area(b.getBoundingClientRect()));
+
+      const bottomCandidates = candidates
+        .filter(el => el.getBoundingClientRect().bottom >= window.innerHeight - 80)
+        .sort((a, b) => area(a.getBoundingClientRect()) - area(b.getBoundingClientRect()));
+
+      if (!topTarget) topTarget = topCandidates[0] || null;
+      if (!bottomTarget) bottomTarget = bottomCandidates[0] || null;
+    }
+
+    if (topTarget) topTarget.classList.add('reader-auto-hide-target');
+    if (bottomTarget) bottomTarget.classList.add('reader-auto-hide-target');
+  }
+
+  function showBars() {
+    if (topTarget) topTarget.classList.remove('reader-hidden-top');
+    if (bottomTarget) {
+      bottomTarget.classList.remove('hidden');
+      bottomTarget.classList.remove('reader-hidden-bottom');
+    }
+  }
+
+  function hideBars() {
+    if (topTarget) topTarget.classList.add('reader-hidden-top');
+    if (bottomTarget) {
+      bottomTarget.classList.add('hidden');
+      bottomTarget.classList.add('reader-hidden-bottom');
+    }
+  }
+
+  function hideBottomUntilHeroEnds() {
+    if (!bottomTarget) return;
+    bottomTarget.classList.add('hidden');
+    bottomTarget.classList.remove('reader-hidden-bottom');
+  }
+
+  function resetHideTimer() {
+    clearTimeout(hideTimer);
+    hideTimer = setTimeout(hideBars, 1300);
+  }
+
+  function onScrollOrTouch() {
+    if (!topTarget && !bottomTarget) findTargets();
+
+    if (!isPastHero()) {
+      activated = false;
+      if (topTarget) topTarget.classList.remove('reader-hidden-top');
+      hideBottomUntilHeroEnds();
+      clearTimeout(hideTimer);
+      return;
+    }
+
+    const isBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 40;
+
+    if (isBottom) {
+      // DOAR bara de jos ramane
+      if (bottomTarget) {
+        bottomTarget.classList.remove('hidden');
+        bottomTarget.classList.remove('reader-hidden-bottom');
+      }
+      clearTimeout(hideTimer);
+      return;
+    }
+
+    activated = true;
+    showBars();
+    resetHideTimer();
+  }
+  
+  window.addEventListener('load', function () {
+    findTargets();
+    if (topTarget) {
+      topTarget.dataset.introDone = 'false';
+      topTarget.addEventListener('animationend', function () {
+        topTarget.style.animation = 'none';
+        topTarget.dataset.introDone = 'true';
+        if (!topTarget.classList.contains('reader-hidden-top')) {
+          topTarget.style.opacity = '1';
+          topTarget.style.transform = 'translateY(0)';
+        }
+      }, { once: true });
+    }
+    if (window.scrollY <= threshold) {
+      if (topTarget) topTarget.classList.remove('reader-hidden-top');
+      hideBottomUntilHeroEnds();
+      clearTimeout(hideTimer);
+    } else {
+      onScrollOrTouch();
+    }
+  });
+
+  window.addEventListener('resize', function () {
+    topTarget = null;
+    bottomTarget = null;
+    findTargets();
+    if (!isPastHero()) {
+      if (topTarget) topTarget.classList.remove('reader-hidden-top');
+      hideBottomUntilHeroEnds();
+      clearTimeout(hideTimer);
+    } else {
+      showBars();
+      resetHideTimer();
+    }
+  });
+
+  window.addEventListener('scroll', onScrollOrTouch, { passive: true });
+  window.addEventListener('touchmove', onScrollOrTouch, { passive: true });
+})();
+</script>
+</body>
+</html>
