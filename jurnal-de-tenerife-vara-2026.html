@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ro">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jurnal de Tenerife · Vara 2026 | Port Royale 285</title>
-<meta name="description" content="Jurnal de Tenerife despre o dimineață devreme în Los Cristianos, de la Port Royale spre promenadă și Atlantic.">
+<title>Tenerife Journal · Summer 2026 | Port Royale 285</title>
+<meta name="description" content="A Tenerife journal about an early morning in Los Cristianos, from Port Royale to the promenade and the Atlantic.">
 <style>
 :root {
   --ink:#20211f; --muted:#666a63; --paper:#f7f4ee; --card:#fffdf9;
@@ -23,7 +23,7 @@ body{
 }
 .hero-inner{width:min(1120px,92%);margin:0 auto;padding:80px 0 70px;color:#fff}
 .kicker{letter-spacing:.18em;text-transform:uppercase;font-size:.72rem;font-family:Arial,sans-serif;font-weight:700}
-h1{font-size:clamp(2.35rem,6vw,5.4rem);line-height:1.02;max-width:950px;margin:.6rem 0 1rem;font-weight:500}
+h1,.article-title{font-size:clamp(2.35rem,6vw,5.4rem);line-height:1.02;max-width:950px;margin:.6rem 0 1rem;font-weight:500}
 .subtitle{font-size:clamp(1.05rem,2vw,1.35rem);max-width:720px;color:rgba(255,255,255,.88);font-style:italic}
 .byline{margin-top:2rem;font-family:Arial,sans-serif;font-size:.86rem;letter-spacing:.04em}
 main{width:min(var(--max),90%);margin:0 auto;padding:70px 0 100px}
@@ -40,6 +40,35 @@ h2{font-size:2rem;line-height:1.2;margin:3.6rem 0 1.25rem;font-weight:500}
 .signature{margin-top:4.5rem;padding-top:2rem;border-top:1px solid var(--line)}
 .signature strong{display:block;font-size:1.1rem}
 .signature em{color:var(--muted)}
+.lang-switch{
+  position:fixed;
+  top:18px;
+  right:18px;
+  z-index:1000;
+  display:flex;
+  gap:6px;
+  padding:6px;
+  background:rgba(255,253,249,.88);
+  border:1px solid rgba(255,255,255,.65);
+  border-radius:999px;
+  box-shadow:0 8px 25px rgba(0,0,0,.12);
+  backdrop-filter:blur(10px);
+}
+.lang-switch button{
+  border:0;
+  border-radius:999px;
+  padding:9px 12px;
+  cursor:pointer;
+  background:transparent;
+  color:#2a2a28;
+  font:700 12px/1 Arial,sans-serif;
+  letter-spacing:.08em;
+}
+.lang-switch button.active{
+  background:#20211f;
+  color:#fff;
+}
+.language-panel[hidden]{display:none !important}
 @media(max-width:700px){
  body{font-size:17px}
  .hero{min-height:78vh}
@@ -47,17 +76,20 @@ h2{font-size:2rem;line-height:1.2;margin:3.6rem 0 1.25rem;font-weight:500}
  main{padding-top:48px}
  h2{font-size:1.65rem}
  .pullquote{font-size:1.35rem}
+ .lang-switch{top:12px;right:12px}
+ .lang-switch button{padding:8px 10px}
 }
 </style>
 <link rel="canonical" href="https://portroyale285.es/jurnal-de-tenerife-vara-2026.html">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="shortcut icon" href="favicon.ico">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Jurnal de Tenerife · Vara 2026 | Port Royale 285">
-<meta property="og:description" content="Jurnal de Tenerife despre o dimineață devreme în Los Cristianos, de la Port Royale spre promenadă și Atlantic.">
+<meta property="og:title" content="Tenerife Journal · Summer 2026 | Port Royale 285">
+<meta property="og:description" content="A Tenerife journal about an early morning in Los Cristianos, from Port Royale to the promenade and the Atlantic.">
 <meta property="og:url" content="https://portroyale285.es/jurnal-de-tenerife-vara-2026.html">
 <meta property="og:image" content="https://portroyale285.es/images/guide/jurnal-hero.jpg">
-<meta property="og:locale" content="ro_RO">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="ro_RO">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="stylesheet" href="assets/guide-shell.css">
 <script defer src="assets/guide-nav.js"></script>
@@ -96,10 +128,14 @@ h2{font-size:2rem;line-height:1.2;margin:3.6rem 0 1.25rem;font-weight:500}
   <a class="guide-return-link" href="tenerife-guide.html" aria-label="Back to Tenerife Guide">← Tenerife Guide</a>
 </div>
 
+<h1 class="visually-hidden">Jurnal de Tenerife · Vara 2026 / Tenerife Journal · Summer 2026</h1>
+<nav aria-label="Language selector" class="lang-switch"><button aria-controls="article-en" aria-pressed="true" class="active" data-lang="en" type="button">EN</button><button aria-controls="article-ro" aria-pressed="false" data-lang="ro" type="button">RO</button></nav>
+
+<article class="language-panel" hidden id="article-ro" lang="ro">
 <section class="hero">
   <div class="hero-inner">
     <div class="kicker">Jurnal de Tenerife · Vara 2026</div>
-    <h1>Los Cristianos, înainte ca orașul să se trezească</h1>
+    <div class="article-title">Los Cristianos, înainte ca orașul să se trezească</div>
     <div class="subtitle">O dimineață lentă între Port Royale, promenadă și Atlantic.</div>
     <div class="byline">de Catalin C.</div>
   </div>
@@ -200,6 +236,114 @@ h2{font-size:2rem;line-height:1.2;margin:3.6rem 0 1.25rem;font-weight:500}
   <em>Travel slower. Discover deeper.</em>
 </div>
 </main>
+</article>
+
+<article class="language-panel" id="article-en" lang="en">
+<section class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Tenerife Journal · Summer 2026</div>
+    <div class="article-title">Los Cristianos, Before the Town Wakes Up</div>
+    <div class="subtitle">A slow morning between Port Royale, the promenade and the Atlantic.</div>
+    <div class="byline">by Catalin C.</div>
+  </div>
+</section>
+
+<main>
+<p class="lead">Early in the morning, Los Cristianos does not yet look like the resort everyone knows. The terraces are almost empty, the sun loungers have not been taken, and the streets still hold the quiet of the night. For a little while, the town seems to exist only for those who woke up early.</p>
+
+<p>At Port Royale, the morning begins without haste. The pool lies still, the white buildings gradually take shape, and the air carries that brief coolness that quickly disappears in the south of the island. There are no conversations or the familiar noise of a day on holiday. The only sounds are a few doors opening, a few birds and a light breeze through the leaves.</p>
+
+<div class="figure portrait">
+  <picture><source srcset="images/guide/jurnal-port-royale-pool.webp" type="image/webp"><img src="images/guide/jurnal-port-royale-pool.jpg" alt="Empty pool at Port Royale in the morning" loading="lazy" decoding="async" width="864" height="1536"></picture>
+  <div class="caption">Port Royale at the start of the day: an empty pool, unoccupied sun loungers and the quiet of the morning.</div>
+</div>
+
+<p>I like this hour because it asks for no plan. You do not need to choose a destination or hurry towards anything. You open the door, look at the still-sleeping complex and set off. Sometimes Tenerife is better understood this way: not through its major attractions, but through a few minutes when the light falls on a white wall and no one speaks.</p>
+
+<h2>The Walk Down to Los Cristianos</h2>
+
+<p>From Port Royale, the road slopes down towards the ocean. During the day, the hill is merely a practical detail. In the morning, it becomes part of the story. You walk more slowly, while the sea appears between the buildings, vanishes beyond a bend and returns a few dozen metres farther down.</p>
+
+<div class="figure">
+  <picture><source srcset="images/guide/jurnal-road-to-ocean.webp" type="image/webp"><img src="images/guide/jurnal-road-to-ocean.jpg" alt="Street descending towards the ocean from the Port Royale area" loading="lazy" decoding="async" width="1536" height="864"></picture>
+  <div class="caption">A view of the Atlantic from the streets descending from the Port Royale area.</div>
+</div>
+
+<p>At the start of the morning, the streets are not completely empty, but they still belong to the town. The people you see are going to work, walking a dog or opening a shop. A shutter is raised, a few chairs are lined up, a van stops to make a delivery. They are ordinary gestures, almost invisible once the day truly gets under way.</p>
+
+<p>Los Cristianos is more than a holiday destination. The morning makes that clearest. Before the beaches and excursions, there is a town preparing for those who will arrive later.</p>
+
+<div class="pullquote">A tourist town says the most about itself before the tourists wake up.</div>
+
+<h2>The Beach Before the Crowds</h2>
+
+<p>When I reach the water, the light is still gentle. The sun loungers are set out, the parasols are raised, but most places are free. Early in the morning, the beach is almost empty. The sun loungers are ready, the parasols are up, but the people have not yet arrived, and the Atlantic remains untouched and cool in the soft light at the start of the day.</p>
+
+<div class="figure portrait">
+  <picture><source srcset="images/guide/jurnal-beach-morning.webp" type="image/webp"><img src="images/guide/jurnal-beach-morning.jpg" alt="Beach with mostly empty sun loungers in the morning" loading="lazy" decoding="async" width="864" height="1536"></picture>
+  <div class="caption">The beach in the morning, before the sun loungers and parasols are occupied.</div>
+</div>
+
+<p>This is the moment the photograph captures best. Not a completely empty beach, nor an idealised image, but the beginning of a real day. Someone has already arrived, someone else is looking for a place, and the rest of the town is still on its way.</p>
+
+<p>The Atlantic can be heard more clearly when there are few voices. The waves are not necessarily strong, but they have a steady rhythm that covers the other sounds. For a few minutes, you do not feel the need to do anything. You walk, stop and look.</p>
+
+<h2>Between the Ocean and the Mountain</h2>
+
+<p>Los Cristianos is held between two great presences: the Atlantic and the southern landscape of the island. From near the beach, the mountain sometimes seems very close, especially when the clouds half-cover it and the light changes from one minute to the next.</p>
+
+<div class="figure portrait">
+  <picture><source srcset="images/guide/jurnal-los-cristianos-mountain.webp" type="image/webp"><img src="images/guide/jurnal-los-cristianos-mountain.jpg" alt="Los Cristianos and the mountain beneath the morning clouds" loading="lazy" decoding="async" width="864" height="1536"></picture>
+  <div class="caption">Los Cristianos and the southern landscape of the island, beneath the morning clouds.</div>
+</div>
+
+<p>The town is not a perfect backdrop, nor should it be presented as one. It has traffic, closely packed buildings, steep streets and hours when the quiet disappears almost completely. Yet this very combination is what makes it recognisable. It is a lived-in place, not a photograph untouched by life.</p>
+
+<p>Over time, a connection to a place is built from small things: a street corner you recognise, a road you no longer need to check on the map, the way the light falls on a particular morning. A place begins to become yours when you no longer see it only as a destination.</p>
+
+<h2>When the Town Begins to Change</h2>
+
+<p>As the morning moves on, the change becomes visible. More cars appear, more voices can be heard, and the terraces begin to fill. On the beach, fewer empty spaces remain. The sun climbs and the colours take on the familiar intensity of the island’s south.</p>
+
+<p>It is not a sad moment. Without people, Los Cristianos would no longer be Los Cristianos. Its energy comes from the mix of languages, ages and reasons that brought each person here. Yet, once you have seen the morning, you look at the rest of the day differently. You know that beneath the bustle lies a quieter version, one that will return the following day.</p>
+
+<h2>Why It Is Worth Setting Out Early</h2>
+
+<p>You do not need a complicated route. In summer, setting out early in the morning offers cooler, more comfortable temperatures, softer light and enough quiet to notice the town. You can walk down to the beach, follow the promenade and return before the sun grows strong.</p>
+
+<div class="practical">
+  <h3>Journal Note</h3>
+  <p>Wear comfortable shoes and take a little water. The walk down is easy, but the return to Port Royale is uphill. Most importantly, do not turn the walk into a race. This morning is worthwhile precisely because you do not need to tick anything off a list.</p>
+</div>
+
+<p>Its value does not lie in the number of places seen. It lies in the rhythm. In the fact that, for a while, you do not have to get anywhere and do not have to prove that you made the most of the day. In a destination where every hour can be filled with excursions and plans, a walk without a goal becomes one of the most honest experiences.</p>
+
+<h2>The Return to Port Royale</h2>
+
+<p>The walk back is uphill now. The ocean recedes behind me and reappears each time I stop. The streets I walked down in silence are already livelier, and the day seems fully under way.</p>
+
+<div class="figure portrait">
+  <picture><source srcset="images/guide/jurnal-port-royale-flowers.webp" type="image/webp"><img src="images/guide/jurnal-port-royale-flowers.jpg" alt="Flowers and empty sun loungers at Port Royale" loading="lazy" decoding="async" width="864" height="1536"></picture>
+  <div class="caption">Back at Port Royale, where the morning quiet still lingers among the flowers and empty sun loungers.</div>
+</div>
+
+<p>When I arrive, the complex too is beginning to wake up. Doors open, the first voices can be heard, and the pool no longer seems suspended outside time. Everything gradually settles into its usual rhythm.</p>
+
+<p>But the morning does not disappear completely. It remains in the way I look at the place for the rest of the day. It remains in the light on the beach, in the streets walked down without haste, and in the quiet I know I will find again.</p>
+
+<div class="pullquote">When I returned to Port Royale, Los Cristianos was only just beginning to wake up. I already felt as though I had lived through an entire day.</div>
+
+<p>Perhaps this is why I return to the same walk. Not because the route changes, but because I notice it differently each time. Some places are discovered across great distances. Others, by retracing a few familiar steps with care.</p>
+
+<p>Los Cristianos, before the town wakes up, belongs to the second category.</p>
+
+<div class="signature">
+  <strong>Catalin C.</strong>
+  <em>Founder of Tenerife Guide</em><br>
+  <em>Travel slower. Discover deeper.</em>
+</div>
+</main>
+</article>
 <nav class="article-return-bottom" aria-label="Tenerife Guide">
   <a class="guide-return-link" href="tenerife-guide.html">← Tenerife Guide</a>
 </nav>
@@ -208,5 +352,51 @@ h2{font-size:2rem;line-height:1.2;margin:3.6rem 0 1.25rem;font-weight:500}
   <img class="site-footer-logo" src="favicon.svg" alt="" width="52" height="52" loading="lazy" decoding="async">
   <div class="site-footer-license">VV-38-4-0101051</div>
 </footer>
+<script>
+(function(){
+  const buttons = document.querySelectorAll('.lang-switch button');
+  const panels = {
+    ro: document.getElementById('article-ro'),
+    en: document.getElementById('article-en')
+  };
+  const pageCopy = {
+    en: {
+      title: 'Tenerife Journal · Summer 2026 | Port Royale 285',
+      description: 'A Tenerife journal about an early morning in Los Cristianos, from Port Royale to the promenade and the Atlantic.',
+      locale: 'en_GB'
+    },
+    ro: {
+      title: 'Jurnal de Tenerife · Vara 2026 | Port Royale 285',
+      description: 'Jurnal de Tenerife despre o dimineață devreme în Los Cristianos, de la Port Royale spre promenadă și Atlantic.',
+      locale: 'ro_RO'
+    }
+  };
+  const description = document.querySelector('meta[name="description"]');
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  const ogDescription = document.querySelector('meta[property="og:description"]');
+  const ogLocale = document.querySelector('meta[property="og:locale"]');
+
+  function setLanguage(lang, updateHash=true){
+    Object.entries(panels).forEach(([key,panel]) => panel.hidden = key !== lang);
+    buttons.forEach(btn => {
+      const active = btn.dataset.lang === lang;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    document.documentElement.lang = lang;
+    document.title = pageCopy[lang].title;
+    description.setAttribute('content', pageCopy[lang].description);
+    ogTitle.setAttribute('content', pageCopy[lang].title);
+    ogDescription.setAttribute('content', pageCopy[lang].description);
+    ogLocale.setAttribute('content', pageCopy[lang].locale);
+    if(updateHash) history.replaceState(null,'', '#' + lang);
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  buttons.forEach(btn => btn.addEventListener('click', () => setLanguage(btn.dataset.lang)));
+  const requested = location.hash.replace('#','').toLowerCase();
+  setLanguage(requested === 'ro' ? 'ro' : 'en', false);
+})();
+</script>
 </body>
 </html>
