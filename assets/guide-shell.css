@@ -386,6 +386,68 @@ body.article-page {
   width: 100%;
 }
 
+/* Keep inline editorial photography balanced and fully visible. */
+.journal-page main .figure {
+  width: min(1000px, calc(100vw - 64px));
+  margin: 3.8rem 0 3.8rem 50%;
+  transform: translateX(-50%);
+}
+
+.journal-page main .figure.portrait {
+  width: min(560px, calc(100vw - 64px));
+}
+
+.editorial-page main .figure-wide,
+.editorial-page main .figure-full,
+.editorial-page main .figure-portroyale {
+  width: min(1000px, calc(100vw - 64px));
+}
+
+.editorial-page main .figure-portrait,
+.editorial-page main .final-image {
+  width: min(560px, calc(100vw - 64px));
+}
+
+.article-page main .figure picture,
+.article-page main .figure-wide picture,
+.article-page main .figure-full picture,
+.article-page main .figure-portroyale picture,
+.article-page main .figure-portrait picture,
+.article-page main .final-image picture {
+  display: flex;
+  justify-content: center;
+}
+
+.article-page main .figure img,
+.article-page main .figure-wide img,
+.article-page main .figure-full img,
+.article-page main .figure-portroyale img,
+.article-page main .figure-portrait img,
+.article-page main .final-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: none;
+  margin-inline: auto;
+  object-fit: contain;
+}
+
+.article-page main .figure.portrait picture,
+.article-page main .figure-portrait picture,
+.article-page main .final-image picture {
+  height: min(760px, 78vh);
+  align-items: center;
+}
+
+.article-page main .figure.portrait img,
+.article-page main .figure-portrait img,
+.article-page main .final-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
 .article-page .site-footer-shell {
   background: rgba(255, 255, 255, .36);
   border-top: 1px solid rgba(32, 37, 45, .08);
@@ -427,6 +489,16 @@ body.article-page {
 }
 
 @media (max-width: 700px) {
+  .journal-page main .figure,
+  .journal-page main .figure.portrait,
+  .editorial-page main .figure-wide,
+  .editorial-page main .figure-full,
+  .editorial-page main .figure-portroyale,
+  .editorial-page main .figure-portrait,
+  .editorial-page main .final-image {
+    width: calc(100vw - 28px);
+  }
+
   .site-shell,
   .article-page .site-shell,
   .guide-archive {
