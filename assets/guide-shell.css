@@ -144,8 +144,7 @@
 }
 
 .guide-return-link:hover,
-.guide-card-link:hover,
-.guide-archive-link:hover {
+.guide-card-link:hover {
   text-decoration: underline;
 }
 
@@ -343,10 +342,24 @@
 .guide-archive-link {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 8px;
-  padding: 8px 0;
-  color: var(--site-muted);
+  min-height: 42px;
+  padding: 10px 16px;
+  color: var(--site-text);
+  background: #fff;
+  border: 1px solid var(--site-line);
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
   font-size: 14px;
+  transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+}
+
+.guide-archive-link:hover {
+  background: #f4f4f4;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .12);
+  text-decoration: none;
+  transform: translateY(-2px);
 }
 
 .guide-archive-link::after {
