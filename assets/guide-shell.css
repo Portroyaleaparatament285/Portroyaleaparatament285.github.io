@@ -509,6 +509,20 @@ body.article-page {
   object-fit: contain;
 }
 
+/* Editorial portraits fill their white frame without cropping. */
+.editorial-page main .figure-portrait picture,
+.editorial-page main .final-image picture {
+  display: block;
+  height: auto;
+}
+
+.editorial-page main .figure-portrait img,
+.editorial-page main .final-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 .article-page .site-footer-shell {
   background: rgba(255, 255, 255, .36);
   border-top: 1px solid rgba(32, 37, 45, .08);
