@@ -388,7 +388,7 @@ body.article-page {
 
 /* Keep inline editorial photography balanced and fully visible. */
 .journal-page main .figure {
-  width: min(1000px, calc(100vw - 64px));
+  width: min(760px, calc(100vw - 64px));
   margin: 3.8rem 0 3.8rem 50%;
   transform: translateX(-50%);
 }
@@ -400,7 +400,7 @@ body.article-page {
 .editorial-page main .figure-wide,
 .editorial-page main .figure-full,
 .editorial-page main .figure-portroyale {
-  width: min(1000px, calc(100vw - 64px));
+  width: min(760px, calc(100vw - 64px));
 }
 
 .editorial-page main .figure-portrait,
