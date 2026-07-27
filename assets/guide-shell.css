@@ -15,10 +15,22 @@
   margin: 0 auto;
 }
 
-.site-nav {
+.site-header-shell {
   position: sticky;
   top: 0;
   z-index: 1200;
+  transition: transform .72s cubic-bezier(.22, 1, .36, 1), opacity .72s ease;
+  will-change: transform, opacity;
+}
+
+.site-header-shell.reader-hidden-top {
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+}
+
+.site-nav {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -46,10 +58,17 @@
 }
 
 .site-brand-mark {
-  display: block;
+  display: grid;
+  place-items: center;
   width: 42px;
   height: 42px;
   flex: 0 0 42px;
+}
+
+.site-brand-mark img {
+  display: block;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
 }
 
@@ -81,17 +100,18 @@
   align-items: center;
   justify-content: flex-end;
   flex-wrap: wrap;
-  gap: 8px 26px;
+  gap: 8px 16px;
 }
 
 .site-nav-links a {
-  padding: 8px 2px;
+  padding: 4px 2px;
   color: var(--site-text);
-  font-size: 16.5px;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.15;
   text-decoration: none;
   white-space: nowrap;
+  opacity: .92;
   transition: opacity .2s ease, transform .2s ease;
 }
 
@@ -127,6 +147,22 @@
 .guide-card-link:hover,
 .guide-archive-link:hover {
   text-decoration: underline;
+}
+
+.article-return-bottom {
+  width: min(760px, calc(100% - 36px));
+  margin: 0 auto 32px;
+  text-align: center;
+}
+
+.article-return-bottom .guide-return-link {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: .78;
+}
+
+.article-return-bottom .guide-return-link:hover {
+  opacity: 1;
 }
 
 .site-footer-shell {
@@ -457,6 +493,7 @@ body.article-page {
   .guide-card,
   .guide-card-media img,
   .site-nav-links a,
+  .site-header-shell,
   .guide-card-link::after {
     transition: none;
   }
@@ -479,7 +516,7 @@ body.article-page {
   }
 
   .site-nav-links a {
-    padding: 2px 0;
+    padding: 0;
     font-size: 15px;
   }
 
@@ -519,9 +556,9 @@ body.article-page {
   }
 
   .site-brand-mark {
-    width: 40px;
-    height: 40px;
-    flex-basis: 40px;
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
     margin-left: max(8px, calc(50% - 170px));
   }
 
@@ -533,16 +570,16 @@ body.article-page {
   }
 
   .site-brand-title {
-    font-size: 22px;
-    letter-spacing: 2.4px;
+    font-size: 24px;
+    letter-spacing: 2.8px;
   }
 
   .site-brand-sub {
-    font-size: 11.5px;
+    font-size: 12.5px;
   }
 
   .site-nav-links a {
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .guide-return-row {
