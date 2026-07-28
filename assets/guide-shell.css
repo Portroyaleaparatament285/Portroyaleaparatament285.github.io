@@ -559,6 +559,30 @@ body.article-page {
     font-size: 15px;
   }
 
+  .site-brand {
+    position: relative;
+    width: 100%;
+    min-height: 50px;
+    justify-content: flex-start;
+    margin: 0;
+  }
+
+  .site-brand-mark {
+    position: relative;
+    z-index: 2;
+    margin-left: max(8px, calc(50% - 170px));
+  }
+
+  .site-brand-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    pointer-events: none;
+  }
+
   .article-page .lang-switch {
     top: 116px;
   }
@@ -575,50 +599,8 @@ body.article-page {
     width: calc(100vw - 28px);
   }
 
-  .site-shell,
-  .article-page .site-shell,
   .guide-archive {
     width: min(100% - 24px, 1240px);
-  }
-
-  .site-nav {
-    gap: 9px;
-    padding: 12px 10px;
-    border-radius: 0 0 20px 20px;
-  }
-
-  .site-brand {
-    position: relative;
-    width: 100%;
-    min-height: 50px;
-    justify-content: flex-start;
-  }
-
-  .site-brand-mark {
-    width: 42px;
-    height: 42px;
-    flex-basis: 42px;
-    margin-left: max(8px, calc(50% - 170px));
-  }
-
-  .site-brand-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
-
-  .site-brand-title {
-    font-size: 24px;
-    letter-spacing: 2.8px;
-  }
-
-  .site-brand-sub {
-    font-size: 12.5px;
-  }
-
-  .site-nav-links a {
-    font-size: 15px;
   }
 
   .guide-return-row {
@@ -675,18 +657,34 @@ body.article-page {
   }
 }
 
+@media (max-width: 640px) {
+  .site-shell,
+  .article-page .site-shell {
+    width: min(100% - 24px, 1240px);
+  }
+
+  .site-nav {
+    gap: 9px;
+    padding: 12px 10px;
+    border-radius: 0 0 20px 20px;
+  }
+}
+
 @media (max-width: 380px) {
   .site-brand-mark {
     margin-left: 8px;
   }
 
   .site-brand-title {
-    font-size: 20px;
-    letter-spacing: 2px;
+    font-size: 24px;
+    letter-spacing: 2.4px;
   }
 
-  .site-brand-sub,
+  .site-brand-sub {
+    font-size: 11.8px;
+  }
+
   .site-nav-links a {
-    font-size: 11.5px;
+    font-size: 14px;
   }
 }
