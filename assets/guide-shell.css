@@ -247,6 +247,8 @@
 }
 
 .guide-card {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
   overflow: hidden;
   background: var(--site-card);
@@ -288,6 +290,9 @@
 }
 
 .guide-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
   padding: 22px 22px 24px;
 }
 
@@ -322,6 +327,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
+  margin-top: auto;
   font-size: 14px;
 }
 
@@ -523,6 +529,47 @@ body.article-page {
   object-fit: contain;
 }
 
+/* La Recova uses portrait photography throughout; fill the frame without cropping. */
+.la-recova-page main .figure {
+  width: min(560px, calc(100vw - 64px));
+  margin: 3.8rem 0 3.8rem 50%;
+  transform: translateX(-50%);
+}
+
+.la-recova-page main .figure.portrait picture {
+  display: block;
+  height: auto;
+}
+
+.la-recova-page main .figure.portrait img {
+  width: 100%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+}
+
+.la-recova-page main .signature span {
+  display: block;
+}
+
+.la-recova-page main .signature span:first-child {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.la-recova-page main .signature span:nth-child(2) {
+  color: var(--site-muted);
+  font-style: italic;
+}
+
+.la-recova-page main .signature span:last-child {
+  margin-top: .4rem;
+  color: var(--site-accent);
+  font: 700 12px/1.4 Arial, sans-serif;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
 .article-page .site-footer-shell {
   background: rgba(255, 255, 255, .36);
   border-top: 1px solid rgba(32, 37, 45, .08);
@@ -535,6 +582,13 @@ body.article-page {
   .site-header-shell,
   .guide-card-link::after {
     transition: none;
+  }
+}
+
+@media (min-width: 1021px) {
+  .guide-card-grid,
+  .guide-archive .guide-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -595,7 +649,8 @@ body.article-page {
   .editorial-page main .figure-full,
   .editorial-page main .figure-portroyale,
   .editorial-page main .figure-portrait,
-  .editorial-page main .final-image {
+  .editorial-page main .final-image,
+  .la-recova-page main .figure {
     width: calc(100vw - 28px);
   }
 
@@ -686,5 +741,17 @@ body.article-page {
 
   .site-nav-links a {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 360px) {
+  .site-nav-links {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+
+  .article-page .lang-switch {
+    top: 148px;
   }
 }
