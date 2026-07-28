@@ -352,9 +352,9 @@
   gap: 8px;
   min-height: 42px;
   padding: 10px 16px;
-  color: var(--site-text);
-  background: #fff;
-  border: 1px solid var(--site-line);
+  color: #fff;
+  background: var(--site-accent);
+  border: 1px solid var(--site-accent);
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
   font-size: 14px;
@@ -362,7 +362,9 @@
 }
 
 .guide-archive-link:hover {
-  background: #f4f4f4;
+  color: #fff;
+  background: #185b62;
+  border-color: #185b62;
   box-shadow: 0 14px 30px rgba(0, 0, 0, .12);
   text-decoration: none;
   transform: translateY(-2px);
