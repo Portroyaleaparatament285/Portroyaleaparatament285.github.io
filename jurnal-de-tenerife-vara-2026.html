@@ -125,7 +125,7 @@ h2{font-size:2rem;line-height:1.2;margin:3.6rem 0 1.25rem;font-weight:500}
 </nav>
 </header>
 <div class="guide-return-row">
-  <a class="guide-return-link" href="tenerife-guide.html" aria-label="Back to Tenerife Guide">← Tenerife Guide</a>
+  <a class="guide-return-link" href="tenerife-guide.html" aria-label="Back to Tenerife Guide">← Back to Tenerife Guide</a>
 </div>
 
 <h1 class="visually-hidden">Tenerife Journal · Summer 2026</h1>
@@ -345,7 +345,7 @@ h2{font-size:2rem;line-height:1.2;margin:3.6rem 0 1.25rem;font-weight:500}
 </main>
 </article>
 <nav class="article-return-bottom" aria-label="Tenerife Guide">
-  <a class="guide-return-link" href="tenerife-guide.html">← Tenerife Guide</a>
+  <a class="guide-return-link" href="tenerife-guide.html" aria-label="Back to Tenerife Guide">← Back to Tenerife Guide</a>
 </nav>
 <footer class="site-footer-shell">
   <div>Port Royale Apartment 285 · Los Cristianos · Tenerife</div>
@@ -359,6 +359,7 @@ h2{font-size:2rem;line-height:1.2;margin:3.6rem 0 1.25rem;font-weight:500}
     ro: document.getElementById('article-ro'),
     en: document.getElementById('article-en')
   };
+  const returnLinks = document.querySelectorAll('.guide-return-link');
   const pageCopy = {
     en: {
       title: 'Tenerife Journal · Summer 2026 | Port Royale 285',
@@ -382,6 +383,16 @@ h2{font-size:2rem;line-height:1.2;margin:3.6rem 0 1.25rem;font-weight:500}
       const active = btn.dataset.lang === lang;
       btn.classList.toggle('active', active);
       btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    const returnText = lang === 'ro'
+      ? '← Înapoi la Tenerife Guide'
+      : '← Back to Tenerife Guide';
+    const returnLabel = lang === 'ro'
+      ? 'Înapoi la Tenerife Guide'
+      : 'Back to Tenerife Guide';
+    returnLinks.forEach(link => {
+      link.textContent = returnText;
+      link.setAttribute('aria-label', returnLabel);
     });
     document.documentElement.lang = lang;
     document.title = pageCopy[lang].title;

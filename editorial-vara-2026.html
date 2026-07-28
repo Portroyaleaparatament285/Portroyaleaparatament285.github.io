@@ -263,7 +263,7 @@ figcaption{
 </header>
 <h1 class="visually-hidden">Editorial · Summer 2026</h1>
 <div class="guide-return-row">
-  <a class="guide-return-link" href="tenerife-guide.html" aria-label="Back to Tenerife Guide">← Tenerife Guide</a>
+  <a class="guide-return-link" href="tenerife-guide.html" aria-label="Back to Tenerife Guide">← Back to Tenerife Guide</a>
 </div>
 
 <nav aria-label="Language selector" class="lang-switch"><button aria-pressed="true" class="active" data-lang="en" type="button">EN</button><button aria-pressed="false" class="" data-lang="ro" type="button">RO</button></nav>
@@ -646,7 +646,7 @@ figcaption{
 <footer class="footer">Tenerife Guide · by Port Royale 285</footer>
 </article>
 <nav class="article-return-bottom" aria-label="Tenerife Guide">
-  <a class="guide-return-link" href="tenerife-guide.html">← Tenerife Guide</a>
+  <a class="guide-return-link" href="tenerife-guide.html" aria-label="Back to Tenerife Guide">← Back to Tenerife Guide</a>
 </nav>
 <footer class="site-footer-shell">
   <div>Port Royale Apartment 285 · Los Cristianos · Tenerife</div>
@@ -660,12 +660,23 @@ figcaption{
     ro: document.getElementById('article-ro'),
     en: document.getElementById('article-en')
   };
+  const returnLinks = document.querySelectorAll('.guide-return-link');
   function setLanguage(lang, updateHash=true){
     Object.entries(panels).forEach(([key,panel]) => panel.hidden = key !== lang);
     buttons.forEach(btn => {
       const active = btn.dataset.lang === lang;
       btn.classList.toggle('active', active);
       btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    const returnText = lang === 'ro'
+      ? '← Înapoi la Tenerife Guide'
+      : '← Back to Tenerife Guide';
+    const returnLabel = lang === 'ro'
+      ? 'Înapoi la Tenerife Guide'
+      : 'Back to Tenerife Guide';
+    returnLinks.forEach(link => {
+      link.textContent = returnText;
+      link.setAttribute('aria-label', returnLabel);
     });
     document.documentElement.lang = lang;
     document.title = lang === 'ro'
