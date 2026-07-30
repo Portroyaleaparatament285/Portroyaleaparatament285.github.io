@@ -1,0 +1,117 @@
+html[data-language="es"]:not([data-language-ready="true"]) body {
+  visibility: hidden;
+}
+
+.language-panel[hidden] {
+  display: none !important;
+}
+
+.lang-switch {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.lang-switch button {
+  position: relative;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 8px 9px 9px;
+  border: 0;
+  border-radius: 4px;
+  color: #6f706c;
+  background: transparent;
+  cursor: pointer;
+  font: 700 12px/1 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: .08em;
+}
+
+.lang-switch button:hover {
+  color: #20211f;
+  background: transparent;
+}
+
+.lang-switch button.active {
+  color: #20211f;
+  background: transparent;
+}
+
+.lang-switch button + button::before {
+  content: "";
+  position: absolute;
+  top: 9px;
+  bottom: 9px;
+  left: 0;
+  width: 1px;
+  background: rgba(32, 33, 31, .24);
+}
+
+.lang-switch button.active::after {
+  content: "";
+  position: absolute;
+  right: 9px;
+  bottom: 3px;
+  left: 9px;
+  height: 2px;
+  border-radius: 999px;
+  background: #e69a22;
+}
+
+.lang-switch button:focus-visible {
+  outline: 2px solid rgba(31, 111, 120, .42);
+  outline-offset: 1px;
+}
+
+@media (max-width: 700px) {
+  .lang-switch {
+    top: 17px;
+    right: 9px;
+  }
+
+  .lang-switch button {
+    min-width: 30px;
+    min-height: 34px;
+    padding: 7px 7px 8px;
+    font-size: 11px;
+  }
+
+  .lang-switch button + button::before {
+    top: 8px;
+    bottom: 8px;
+  }
+
+  .lang-switch button.active::after {
+    right: 7px;
+    bottom: 2px;
+    left: 7px;
+  }
+}
+
+@media (max-width: 1020px) {
+  .lang-switch {
+    transition: transform .72s cubic-bezier(.22, 1, .36, 1), opacity .72s ease;
+    will-change: transform, opacity;
+  }
+
+  .lang-switch.reader-hidden-language {
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lang-switch,
+  .lang-switch button {
+    transition: none !important;
+  }
+}
