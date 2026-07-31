@@ -38,5 +38,7 @@
   window.addEventListener('scrollend', showTopBar, { passive: true });
   window.addEventListener('mousemove', showTopBar, { passive: true });
   window.addEventListener('keydown', showTopBar);
-  showTopBar();
+
+ showTopBar();
+  document.documentElement.classList.add('reader-navigation-ready');
 })();
