@@ -115,9 +115,3 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
     transition: none !important;
   }
 }
-@media (max-width: 1020px) {
-  html:not(.reader-navigation-ready) .lang-switch {
-    opacity: 0;
-    pointer-events: none;
-  }
-}
