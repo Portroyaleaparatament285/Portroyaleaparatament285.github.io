@@ -39,6 +39,5 @@
   window.addEventListener('mousemove', showTopBar, { passive: true });
   window.addEventListener('keydown', showTopBar);
 
- showTopBar();
-  document.documentElement.classList.add('reader-navigation-ready');
-})();
+  showTopBar();
+  })();
