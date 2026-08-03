@@ -19,6 +19,8 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
   border: 0;
   border-radius: 0;
   box-shadow: none;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .lang-switch button {
@@ -113,5 +115,74 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
   .lang-switch,
   .lang-switch button {
     transition: none !important;
+  }
+}
+
+/* Translation-safe navigation: expand only when translated labels no longer fit. */
+@media (max-width: 1020px) {
+  #readerTopBar.reader-nav-measuring .navlinks,
+  #readerTopBar.reader-nav-measuring .site-nav-links {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+  }
+
+  #readerTopBar.reader-nav-measuring .navlinks a,
+  #readerTopBar.reader-nav-measuring .site-nav-links a {
+    white-space: nowrap !important;
+  }
+
+  #readerTopBar.reader-nav-expanded .navlinks,
+  #readerTopBar.reader-nav-expanded .site-nav-links {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    justify-content: stretch !important;
+    gap: 6px 8px !important;
+    width: 100% !important;
+  }
+
+  #readerTopBar.reader-nav-expanded .navlinks a,
+  #readerTopBar.reader-nav-expanded .site-nav-links a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    min-height: 38px;
+    padding: 4px 6px !important;
+    white-space: normal !important;
+    overflow-wrap: anywhere;
+    text-align: center !important;
+    line-height: 1.15 !important;
+  }
+
+  #readerTopBar.reader-nav-expanded .navlinks a:last-child:nth-child(odd),
+  #readerTopBar.reader-nav-expanded .site-nav-links a:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+
+  html.reader-nav-expanded #readerTopBar.nav + .hero h1,
+  html.reader-nav-expanded #readerTopBar.nav + .guest-hero h1 {
+    max-width: 100% !important;
+    font-size: clamp(38px, 11vw, 54px) !important;
+    overflow-wrap: break-word;
+    text-wrap: balance;
+  }
+
+  html.reader-nav-expanded #readerTopBar.nav + .hero p,
+  html.reader-nav-expanded #readerTopBar.nav + .guest-hero p {
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  html.reader-nav-expanded #readerTopBar.nav + .hero .actions {
+    width: 100%;
+    gap: 12px !important;
+  }
+
+  html.reader-nav-expanded #readerTopBar.nav + .hero .actions .btn {
+    flex: 1 1 132px;
+    min-width: 0 !important;
+    white-space: normal !important;
+    text-align: center;
   }
 }
