@@ -1268,6 +1268,22 @@ body {
   }
 }
 
+/* Keep the language selector in the same opening sequence as the navbar. */
+.lang-switch.lang-intro-pending{
+  animation:langSwitchFadeIn .8s cubic-bezier(.22,1,.36,1) 2.9s backwards;
+}
+
+@keyframes langSwitchFadeIn{
+  from{
+    opacity:0;
+    transform:translateY(16px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
 #readerTopBar.reader-auto-hide-target,
 #readerBottomBar.reader-auto-hide-target{
   transition:transform .72s cubic-bezier(.22,1,.36,1), opacity .72s ease!important;
@@ -2083,7 +2099,7 @@ body {
 <link rel="stylesheet" href="assets/guide-shell.css?v=20260730-returnspace1">
 </head>
 <body>
-<nav class="lang-switch" aria-label="Language selector" data-i18n-attributes="aria-label" data-es-aria-label="Selector de idioma"><button type="button" class="active" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button></nav>
+<nav class="lang-switch lang-intro-pending" aria-label="Language selector" data-i18n-attributes="aria-label" data-es-aria-label="Selector de idioma"><button type="button" class="active" data-lang="en" aria-pressed="true">EN</button><button type="button" data-lang="es" aria-pressed="false">ES</button></nav>
 <div class="wrap">
 <div class="nav" id="readerTopBar">
 <div class="brand">
@@ -2592,6 +2608,9 @@ Book Now
       topTarget.classList.remove('reader-hidden-top');
       topTarget.style.opacity = '1';
       topTarget.style.transform = 'translateY(0)';
+    }
+    if (languageTarget) {
+      languageTarget.classList.remove('lang-intro-pending');
     }
     showBars();
   }
