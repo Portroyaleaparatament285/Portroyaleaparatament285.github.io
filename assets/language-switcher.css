@@ -131,6 +131,22 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
     white-space: nowrap !important;
   }
 
+  #readerTopBar.reader-nav-five-links:not(.reader-nav-expanded) .navlinks,
+  #readerTopBar.reader-nav-five-links:not(.reader-nav-expanded) .site-nav-links {
+    justify-content: space-between !important;
+    gap: 3px !important;
+  }
+
+  #readerTopBar.reader-nav-five-links:not(.reader-nav-expanded) .navlinks a,
+  #readerTopBar.reader-nav-five-links:not(.reader-nav-expanded) .site-nav-links a {
+    flex: 0 0 auto !important;
+    min-width: 0 !important;
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    font-size: 14px !important;
+    white-space: nowrap !important;
+  }
+
   #readerTopBar.reader-nav-expanded .navlinks,
   #readerTopBar.reader-nav-expanded .site-nav-links {
     display: grid !important;
@@ -158,6 +174,30 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
   #readerTopBar.reader-nav-expanded .navlinks a:last-child:nth-child(odd),
   #readerTopBar.reader-nav-expanded .site-nav-links a:last-child:nth-child(odd) {
     grid-column: 1 / -1;
+  }
+
+  #readerTopBar.reader-nav-five-links.reader-nav-expanded .navlinks,
+  #readerTopBar.reader-nav-five-links.reader-nav-expanded .site-nav-links {
+    grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+    gap: 6px !important;
+  }
+
+  #readerTopBar.reader-nav-five-links.reader-nav-expanded .navlinks a,
+  #readerTopBar.reader-nav-five-links.reader-nav-expanded .site-nav-links a {
+    padding: 4px 2px !important;
+    font-size: 14px !important;
+    overflow-wrap: normal;
+    word-break: normal;
+  }
+
+  #readerTopBar.reader-nav-five-links.reader-nav-expanded .navlinks a:nth-child(-n + 3),
+  #readerTopBar.reader-nav-five-links.reader-nav-expanded .site-nav-links a:nth-child(-n + 3) {
+    grid-column: span 2 !important;
+  }
+
+  #readerTopBar.reader-nav-five-links.reader-nav-expanded .navlinks a:nth-child(n + 4),
+  #readerTopBar.reader-nav-five-links.reader-nav-expanded .site-nav-links a:nth-child(n + 4) {
+    grid-column: span 3 !important;
   }
 
   html.reader-nav-expanded #readerTopBar.nav + .hero h1,

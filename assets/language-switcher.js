@@ -201,6 +201,8 @@
         return;
       }
 
+      var links = navigation.querySelectorAll("a");
+      header.classList.toggle("reader-nav-five-links", links.length === 5);
       header.classList.add("reader-nav-measuring");
       var navigationBounds = navigation.getBoundingClientRect();
       if (navigationBounds.width <= 0) {
@@ -209,7 +211,6 @@
       }
 
       var overflow = navigation.scrollWidth > navigation.clientWidth + 1;
-      var links = navigation.querySelectorAll("a");
 
       Array.prototype.forEach.call(links, function (link) {
         var linkBounds = link.getBoundingClientRect();
