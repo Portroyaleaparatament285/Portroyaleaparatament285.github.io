@@ -1,0 +1,236 @@
+/* Homepage entry point for the author page */
+.guide-home-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.guide-home-footer .guide-about-link {
+  color: var(--site-accent);
+  background: transparent;
+  border-color: rgba(31, 111, 120, .44);
+  box-shadow: none;
+}
+
+.guide-home-footer .guide-about-link:hover {
+  color: #185b62;
+  background: rgba(255, 255, 255, .58);
+  border-color: #185b62;
+  box-shadow: none;
+}
+
+/* About Tenerife Guide */
+body.about-guide-page {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+  color: #17201e;
+  background:
+    radial-gradient(circle at 84% 12%, rgba(31, 94, 100, .1), transparent 26rem),
+    radial-gradient(circle at 8% 90%, rgba(201, 113, 77, .1), transparent 24rem),
+    #f7f4ec;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+.about-guide-page a:focus-visible {
+  outline: 2px solid #c9714d;
+  outline-offset: 4px;
+}
+
+.about-skip-link {
+  position: fixed;
+  z-index: 1600;
+  top: 12px;
+  left: 12px;
+  padding: 11px 16px;
+  color: #fff;
+  background: #173f43;
+  border-radius: 4px;
+  text-decoration: none;
+  transform: translateY(-160%);
+  transition: transform .16s ease;
+}
+
+.about-skip-link:focus {
+  transform: translateY(0);
+}
+
+.about-layout {
+  width: min(1320px, calc(100% - 36px));
+  margin: 0 auto;
+  padding: clamp(20px, 2vw, 32px) 0 clamp(56px, 7vw, 112px);
+  display: grid;
+  flex: 1;
+  grid-template-columns: minmax(18rem, .82fr) minmax(28rem, 1.18fr);
+  align-items: center;
+  gap: clamp(56px, 8vw, 144px);
+}
+
+.about-portrait {
+  width: min(100%, 25rem);
+  margin: 0 auto;
+}
+
+.about-portrait-frame {
+  line-height: 0;
+}
+
+.about-portrait-frame img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.about-portrait figcaption {
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  color: #65716d;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .13em;
+  text-transform: uppercase;
+}
+
+.about-copy {
+  max-width: 43rem;
+}
+
+.about-eyebrow {
+  margin: 0 0 22px;
+  color: #c9714d;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .19em;
+  text-transform: uppercase;
+}
+
+.about-copy h1 {
+  margin: 0;
+  color: #17201e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(52px, 6.5vw, 107px);
+  font-weight: 400;
+  letter-spacing: -.055em;
+  line-height: .88;
+}
+
+.about-copy h1 span {
+  display: block;
+  color: #173f43;
+  font-size: .49em;
+  font-style: italic;
+  letter-spacing: -.025em;
+  line-height: 1.15;
+}
+
+.about-copy-rule {
+  width: 100%;
+  height: 1px;
+  margin: clamp(32px, 4vw, 56px) 0 clamp(29px, 3vw, 43px);
+  background: rgba(23, 32, 30, .16);
+}
+
+.about-copy-rule span {
+  display: block;
+  width: 72px;
+  height: 2px;
+  background: #c9714d;
+  transform: translateY(-.5px);
+}
+
+.about-copy p {
+  margin: 0 0 22px;
+  color: #37413e;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(16px, 1.3vw, 19px);
+  line-height: 1.78;
+}
+
+.about-copy .about-introduction {
+  margin-bottom: 26px;
+  color: #17201e;
+  font-size: clamp(18px, 1.7vw, 22px);
+  line-height: 1.62;
+}
+
+.about-signature {
+  margin-bottom: 7px !important;
+  padding-top: 10px;
+  color: #173f43 !important;
+  font-style: italic;
+}
+
+.about-back-link {
+  display: inline-block;
+  color: #173f43;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: .035em;
+  line-height: 1.4;
+  text-decoration: none;
+  opacity: .78;
+  transition: opacity .16s ease, transform .16s ease;
+}
+
+.about-back-link:hover {
+  opacity: 1;
+  transform: translateX(-2px);
+}
+
+@media (min-width: 1021px) {
+  .about-guide-page .site-nav-links {
+    padding-right: 86px;
+  }
+}
+
+@media (max-width: 900px) {
+  .about-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 72px;
+  }
+
+  .about-portrait {
+    width: min(78vw, 23rem);
+  }
+
+  .about-copy {
+    max-width: 42rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .about-layout {
+    width: calc(100% - 24px);
+    padding: 20px 0 64px;
+    gap: 64px;
+  }
+
+  .about-portrait {
+    width: min(82vw, 21rem);
+  }
+
+  .about-copy h1 {
+    font-size: clamp(50px, 16vw, 80px);
+  }
+}
+
+@media (max-width: 480px) {
+  .guide-home-footer .guide-archive-link {
+    width: min(100%, 280px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-skip-link,
+  .about-back-link {
+    transition: none;
+  }
+}

@@ -31,6 +31,7 @@ FILENAMES = (
     "index.html",
     "guest-guide.html",
     "tenerife-guide.html",
+    "about-tenerife-guide.html",
     "africa-si-occidentul-tenerife.html",
     "editorial-vara-2026.html",
     "jurnal-de-tenerife-vara-2026.html",
@@ -838,7 +839,7 @@ def check_sitemap(root: Path, errors: list[str]) -> dict[str, Any]:
         add_error(
             errors,
             "sitemap.xml",
-            f"expected exactly 14 canonical locs; missing={missing}, extra={extra}, count={len(locs)}",
+            f"expected exactly {len(EXPECTED_URLS)} canonical locs; missing={missing}, extra={extra}, count={len(locs)}",
         )
     return {"present": True, "count": len(locs), "duplicates": duplicates}
 
