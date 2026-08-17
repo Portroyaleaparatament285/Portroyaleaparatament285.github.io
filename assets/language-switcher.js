@@ -267,7 +267,10 @@
     bindAdaptiveNavigation();
   }
 
-  var initialLanguage = readStoredLanguage();
+  var initialLanguage = window.location.pathname === "/es"
+    || window.location.pathname.indexOf("/es/") === 0
+    ? "es"
+    : "en";
   root.lang = initialLanguage;
   root.setAttribute("data-language", initialLanguage);
   bindSelectors();

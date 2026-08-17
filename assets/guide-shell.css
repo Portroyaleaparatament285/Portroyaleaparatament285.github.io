@@ -754,11 +754,11 @@ body.article-page {
 }
 
 @media (max-width: 640px) {
-  html[data-language="es"] .site-nav-links {
+  html[lang="es"] .site-nav-links {
     gap: 3px;
   }
 
-  html[data-language="es"] .site-nav-links a {
+  html[lang="es"] .site-nav-links a {
     font-size: 14px;
   }
 }

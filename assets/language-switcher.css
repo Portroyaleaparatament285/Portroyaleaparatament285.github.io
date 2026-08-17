@@ -23,8 +23,12 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
   white-space: nowrap;
 }
 
-.lang-switch button {
+.lang-switch :is(a, button) {
   position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
   min-width: 36px;
   min-height: 36px;
   padding: 8px 9px 9px;
@@ -35,19 +39,21 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
   cursor: pointer;
   font: 700 12px/1 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   letter-spacing: .08em;
+  text-decoration: none;
 }
 
-.lang-switch button:hover {
+.lang-switch :is(a, button):hover {
   color: #20211f;
   background: transparent;
 }
 
-.lang-switch button.active {
+.lang-switch :is(a, button).active,
+.lang-switch a[aria-current="page"] {
   color: #20211f;
   background: transparent;
 }
 
-.lang-switch button + button::before {
+.lang-switch :is(a, button) + :is(a, button)::before {
   content: "";
   position: absolute;
   top: 9px;
@@ -57,7 +63,8 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
   background: rgba(32, 33, 31, .24);
 }
 
-.lang-switch button.active::after {
+.lang-switch :is(a, button).active::after,
+.lang-switch a[aria-current="page"]::after {
   content: "";
   position: absolute;
   right: 9px;
@@ -68,7 +75,7 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
   background: #e69a22;
 }
 
-.lang-switch button:focus-visible {
+.lang-switch :is(a, button):focus-visible {
   outline: 2px solid rgba(31, 111, 120, .42);
   outline-offset: 1px;
 }
@@ -79,19 +86,20 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
     right: 9px;
   }
 
-  .lang-switch button {
+  .lang-switch :is(a, button) {
     min-width: 30px;
     min-height: 34px;
     padding: 7px 7px 8px;
     font-size: 11px;
   }
 
-  .lang-switch button + button::before {
+  .lang-switch :is(a, button) + :is(a, button)::before {
     top: 8px;
     bottom: 8px;
   }
 
-  .lang-switch button.active::after {
+  .lang-switch :is(a, button).active::after,
+  .lang-switch a[aria-current="page"]::after {
     right: 7px;
     bottom: 2px;
     left: 7px;
@@ -113,7 +121,7 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
 
 @media (prefers-reduced-motion: reduce) {
   .lang-switch,
-  .lang-switch button {
+  .lang-switch :is(a, button) {
     transition: none !important;
   }
 }
