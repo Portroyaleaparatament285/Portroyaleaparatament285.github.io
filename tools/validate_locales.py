@@ -28,16 +28,40 @@ from xml.etree import ElementTree
 ORIGIN = "https://portroyale285.es"
 LODGING_ENTITY_ID = f"{ORIGIN}/#lodging"
 EXPECTED_ASSET_VERSION = "20260818-langbar1"
-FILENAMES = (
-    "index.html",
-    "guest-guide.html",
-    "tenerife-guide.html",
-    "about-tenerife-guide.html",
-    "africa-si-occidentul-tenerife.html",
-    "editorial-vara-2026.html",
-    "jurnal-de-tenerife-vara-2026.html",
-    "la-recova-tenerife.html",
+PAGE_PAIRS = (
+    ("index.html", "index.html", "index.html"),
+    ("guest-guide.html", "guest-guide.html", "guest-guide.html"),
+    ("tenerife-guide.html", "tenerife-guide.html", "tenerife-guide.html"),
+    (
+        "about-tenerife-guide.html",
+        "about-tenerife-guide.html",
+        "about-tenerife-guide.html",
+    ),
+    (
+        "africa-and-the-west-tenerife.html",
+        "africa-and-the-west-tenerife.html",
+        "africa-y-occidente-tenerife.html",
+    ),
+    (
+        "editorial-summer-2026.html",
+        "editorial-summer-2026.html",
+        "editorial-verano-2026.html",
+    ),
+    (
+        "tenerife-journal-summer-2026.html",
+        "tenerife-journal-summer-2026.html",
+        "diario-de-tenerife-verano-2026.html",
+    ),
+    ("la-recova-tenerife.html", "la-recova-tenerife.html", "la-recova-tenerife.html"),
 )
+LEGACY_REDIRECTS = {
+    "africa-si-occidentul-tenerife.html": f"{ORIGIN}/africa-and-the-west-tenerife.html",
+    "es/africa-si-occidentul-tenerife.html": f"{ORIGIN}/es/africa-y-occidente-tenerife.html",
+    "editorial-vara-2026.html": f"{ORIGIN}/editorial-summer-2026.html",
+    "es/editorial-vara-2026.html": f"{ORIGIN}/es/editorial-verano-2026.html",
+    "jurnal-de-tenerife-vara-2026.html": f"{ORIGIN}/tenerife-journal-summer-2026.html",
+    "es/jurnal-de-tenerife-vara-2026.html": f"{ORIGIN}/es/diario-de-tenerife-verano-2026.html",
+}
 REGIONAL_LANGUAGE = {"en": "en-GB", "es": "es-ES"}
 OG_LOCALE = {"en": "en_GB", "es": "es_ES"}
 VOID_ELEMENTS = {
@@ -58,6 +82,11 @@ VOID_ELEMENTS = {
 }
 IGNORED_SCHEMES = {"data", "javascript", "mailto", "tel", "sms", "blob"}
 CSS_URL_RE = re.compile(r"url\(\s*(['\"]?)(.*?)\1\s*\)", re.IGNORECASE | re.DOTALL)
+META_REFRESH_RE = re.compile(
+    r"^\s*(?P<delay>\d+(?:\.\d+)?)\s*;\s*url\s*=\s*"
+    r"(?P<quote>['\"]?)(?P<url>.*?)(?P=quote)\s*$",
+    re.IGNORECASE,
+)
 AUTO_REDIRECT_PATTERNS = {
     "browser-language detection": re.compile(
         r"\bnavigator\s*\.\s*languages?\b", re.IGNORECASE
@@ -89,15 +118,21 @@ class PageSpec:
 
 def build_specs() -> list[PageSpec]:
     specs: list[PageSpec] = []
-    for filename in FILENAMES:
-        en_url = f"{ORIGIN}/" if filename == "index.html" else f"{ORIGIN}/{filename}"
+    for pair_key, en_filename, es_filename in PAGE_PAIRS:
+        en_url = (
+            f"{ORIGIN}/"
+            if en_filename == "index.html"
+            else f"{ORIGIN}/{en_filename}"
+        )
         es_url = (
             f"{ORIGIN}/es/"
-            if filename == "index.html"
-            else f"{ORIGIN}/es/{filename}"
+            if es_filename == "index.html"
+            else f"{ORIGIN}/es/{es_filename}"
         )
-        specs.append(PageSpec("en", filename, filename, en_url, filename))
-        specs.append(PageSpec("es", filename, f"es/{filename}", es_url, filename))
+        specs.append(PageSpec("en", en_filename, en_filename, en_url, pair_key))
+        specs.append(
+            PageSpec("es", es_filename, f"es/{es_filename}", es_url, pair_key)
+        )
     return specs
 
 
@@ -249,8 +284,8 @@ def alternate_map(document: PageDocument) -> dict[str, list[str]]:
     return dict(result)
 
 
-def pair_urls(filename: str) -> dict[str, str]:
-    pair = [spec for spec in SPECS if spec.filename == filename]
+def pair_urls(pair_key: str) -> dict[str, str]:
+    pair = [spec for spec in SPECS if spec.pair_key == pair_key]
     return {spec.language: spec.public_url for spec in pair}
 
 
@@ -275,7 +310,7 @@ def selector_links(document: PageDocument) -> tuple[list[Element], list[Element]
 def check_selector(document: PageDocument, errors: list[str]) -> None:
     name = document.spec.relative_file
     anchors, buttons, count = selector_links(document)
-    expected_urls = pair_urls(document.spec.filename)
+    expected_urls = pair_urls(document.spec.pair_key)
     if count != 1:
         add_error(errors, name, f"expected one nav.lang-switch, found {count}")
     if buttons:
@@ -354,7 +389,7 @@ def check_document_basics(document: PageDocument, errors: list[str]) -> None:
     if canonicals != [spec.public_url]:
         add_error(errors, name, f"canonical is {canonicals}, expected [{spec.public_url!r}]")
 
-    expected_alternates = pair_urls(spec.filename)
+    expected_alternates = pair_urls(spec.pair_key)
     expected_alternates["x-default"] = expected_alternates["en"]
     actual_alternates = alternate_map(document)
     expected_wrapped = {key: [value] for key, value in expected_alternates.items()}
@@ -498,7 +533,7 @@ def check_jsonld(
 
     objects = list(json_objects(payload))
     lodging_entities = [obj for obj in objects if obj.get("@type") == "LodgingBusiness"]
-    if document.spec.filename == "index.html":
+    if document.spec.pair_key == "index.html":
         if len(lodging_entities) != 1:
             add_error(
                 errors,
@@ -778,7 +813,7 @@ def check_pair_parity(
     es_document: PageDocument,
     errors: list[str],
 ) -> dict[str, Any]:
-    pair_name = en_document.spec.filename
+    pair_name = en_document.spec.pair_key
     heading_tags = {"h1", "h2", "h3", "h4", "h5", "h6"}
     en_headings = [element.tag for element in en_document.elements() if element.tag in heading_tags]
     es_headings = [element.tag for element in es_document.elements() if element.tag in heading_tags]
@@ -870,6 +905,159 @@ def check_sitemap(root: Path, errors: list[str]) -> dict[str, Any]:
     return {"present": True, "count": len(locs), "duplicates": duplicates}
 
 
+def check_legacy_redirects(root: Path, errors: list[str]) -> dict[str, Any]:
+    report: dict[str, Any] = {}
+    for relative_file, expected_target in LEGACY_REDIRECTS.items():
+        before = len(errors)
+        path = root / relative_file
+        entry: dict[str, Any] = {
+            "present": path.is_file(),
+            "target": expected_target,
+        }
+        report[relative_file] = entry
+        if not path.is_file():
+            add_error(errors, relative_file, "required legacy redirect stub is missing")
+            entry["errors"] = len(errors) - before
+            continue
+
+        language = "es" if relative_file.startswith("es/") else "en"
+        public_url = f"{ORIGIN}/{relative_file}"
+        spec = PageSpec(
+            language,
+            Path(relative_file).name,
+            relative_file,
+            public_url,
+            f"redirect:{relative_file}",
+        )
+        try:
+            document = parse_html(path, spec)
+        except UnicodeDecodeError as exc:
+            add_error(errors, relative_file, f"redirect stub is not UTF-8: {exc}")
+            entry["errors"] = len(errors) - before
+            continue
+
+        html_languages = [
+            element.attributes.get("lang", "").lower()
+            for element in document.elements("html")
+        ]
+        if html_languages != [language]:
+            add_error(
+                errors,
+                relative_file,
+                f"redirect html language is {html_languages}, expected [{language!r}]",
+            )
+
+        robots_values = meta_values(document, "name", "robots")
+        robots = ",".join(robots_values).lower()
+        if len(robots_values) != 1 or "noindex" not in robots or "follow" not in robots:
+            add_error(
+                errors,
+                relative_file,
+                "redirect stub must contain one noindex,follow robots directive",
+            )
+
+        canonicals = [
+            element.attributes.get("href", "").strip()
+            for element in document.elements("link")
+            if rel_contains(element, "canonical")
+        ]
+        if canonicals != [expected_target]:
+            add_error(
+                errors,
+                relative_file,
+                f"redirect canonical is {canonicals}, expected [{expected_target!r}]",
+            )
+
+        refresh_values = [
+            element.attributes.get("content", "").strip()
+            for element in document.elements("meta")
+            if element.attributes.get("http-equiv", "").lower() == "refresh"
+        ]
+        refresh_target: str | None = None
+        if len(refresh_values) != 1:
+            add_error(
+                errors,
+                relative_file,
+                f"expected one meta refresh, found {len(refresh_values)}",
+            )
+        else:
+            match = META_REFRESH_RE.fullmatch(refresh_values[0])
+            if match is None:
+                add_error(
+                    errors,
+                    relative_file,
+                    f"invalid meta refresh content: {refresh_values[0]!r}",
+                )
+            else:
+                if float(match.group("delay")) != 0:
+                    add_error(errors, relative_file, "meta refresh delay must be zero")
+                refresh_target = resolved_public_url(public_url, match.group("url"))
+                if refresh_target != expected_target:
+                    add_error(
+                        errors,
+                        relative_file,
+                        f"meta refresh target is {refresh_target!r}, expected {expected_target!r}",
+                    )
+
+        scripts = document.elements("script")
+        script_source = "\n".join(script.text for script in scripts)
+        if not re.search(r"\blocation\s*\.\s*replace\s*\(", script_source):
+            add_error(errors, relative_file, "redirect stub has no location.replace() fallback")
+        if expected_target not in script_source:
+            add_error(errors, relative_file, "redirect script does not contain the expected target")
+        for token in ("location.search", "location.hash"):
+            if token not in script_source:
+                add_error(
+                    errors,
+                    relative_file,
+                    f"redirect script does not preserve window.{token}",
+                )
+
+        active_jsonld = [
+            script
+            for script in scripts
+            if script.attributes.get("type", "").lower() == "application/ld+json"
+        ]
+        if active_jsonld:
+            add_error(errors, relative_file, "redirect stub must not contain active JSON-LD")
+
+        fallback_links = [
+            anchor
+            for anchor in document.elements("a")
+            if anchor.text
+            and resolved_public_url(public_url, anchor.attributes.get("href", ""))
+            == expected_target
+        ]
+        if not fallback_links:
+            add_error(
+                errors,
+                relative_file,
+                "redirect stub has no visible fallback link to the expected target",
+            )
+
+        target_spec = SPEC_BY_URL.get(expected_target)
+        if target_spec is None or target_spec.language != language:
+            add_error(
+                errors,
+                relative_file,
+                "redirect target is not the canonical page for the same language",
+            )
+        target = target_path(root, expected_target)
+        if target is None or not target.is_file():
+            add_error(errors, relative_file, "redirect target file is missing")
+
+        entry.update(
+            {
+                "language": language,
+                "canonical": canonicals[0] if len(canonicals) == 1 else None,
+                "meta_refresh": refresh_target,
+                "fallback_links": len(fallback_links),
+                "errors": len(errors) - before,
+            }
+        )
+    return report
+
+
 def check_404(root: Path, errors: list[str]) -> dict[str, Any]:
     path = root / "404.html"
     if not path.exists():
@@ -944,7 +1132,13 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     documents: dict[tuple[str, str], PageDocument] = {}
-    expected_es_files = {f"es/{filename}" for filename in FILENAMES}
+    expected_es_files = {
+        spec.relative_file for spec in SPECS if spec.language == "es"
+    } | {
+        relative_file
+        for relative_file in LEGACY_REDIRECTS
+        if relative_file.startswith("es/")
+    }
     actual_es_files = {
         path.relative_to(root).as_posix()
         for path in (root / "es").rglob("*.html")
@@ -962,7 +1156,7 @@ def main(argv: list[str] | None = None) -> int:
         except UnicodeDecodeError as exc:
             add_error(errors, spec.relative_file, f"page is not UTF-8: {exc}")
             continue
-        documents[(spec.language, spec.filename)] = document
+        documents[(spec.language, spec.pair_key)] = document
         before = len(errors)
         check_document_basics(document, errors)
         check_legacy_locale_mechanisms(document, errors)
@@ -982,14 +1176,17 @@ def main(argv: list[str] | None = None) -> int:
             "errors": len(errors) - before,
         }
 
-    for filename in FILENAMES:
-        en_document = documents.get(("en", filename))
-        es_document = documents.get(("es", filename))
+    for pair_key, _, _ in PAGE_PAIRS:
+        en_document = documents.get(("en", pair_key))
+        es_document = documents.get(("es", pair_key))
         if en_document and es_document:
-            report["pairs"][filename] = check_pair_parity(en_document, es_document, errors)
+            report["pairs"][pair_key] = check_pair_parity(
+                en_document, es_document, errors
+            )
 
     check_css_files(root, errors)
     report["sitemap"] = check_sitemap(root, errors)
+    report["legacy_redirects"] = check_legacy_redirects(root, errors)
     report["not_found"] = check_404(root, errors)
     report["errors"] = errors
     report["error_count"] = len(errors)

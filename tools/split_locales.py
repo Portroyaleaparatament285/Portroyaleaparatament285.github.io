@@ -40,6 +40,12 @@ class PagePair:
         return ORIGIN + self.es_path
 
     @property
+    def en_file(self) -> str:
+        if self.en_path == "/":
+            return "index.html"
+        return self.en_path.lstrip("/")
+
+    @property
     def es_file(self) -> str:
         if self.es_path == "/es/":
             return "es/index.html"
@@ -52,18 +58,18 @@ PAIRS = (
     PagePair("tenerife-guide.html", "/tenerife-guide.html", "/es/tenerife-guide.html"),
     PagePair(
         "africa-si-occidentul-tenerife.html",
-        "/africa-si-occidentul-tenerife.html",
-        "/es/africa-si-occidentul-tenerife.html",
+        "/africa-and-the-west-tenerife.html",
+        "/es/africa-y-occidente-tenerife.html",
     ),
     PagePair(
         "editorial-vara-2026.html",
-        "/editorial-vara-2026.html",
-        "/es/editorial-vara-2026.html",
+        "/editorial-summer-2026.html",
+        "/es/editorial-verano-2026.html",
     ),
     PagePair(
         "jurnal-de-tenerife-vara-2026.html",
-        "/jurnal-de-tenerife-vara-2026.html",
-        "/es/jurnal-de-tenerife-vara-2026.html",
+        "/tenerife-journal-summer-2026.html",
+        "/es/diario-de-tenerife-verano-2026.html",
     ),
     PagePair(
         "la-recova-tenerife.html",
@@ -73,8 +79,18 @@ PAIRS = (
 )
 
 PAIR_BY_SOURCE = {pair.source: pair for pair in PAIRS}
-PAIR_BY_EN_PATH = {pair.en_path: pair for pair in PAIRS}
-PAIR_BY_EN_PATH["/index.html"] = PAIRS[0]
+PAIR_BY_SITE_PATH: dict[str, PagePair] = {}
+for page_pair in PAIRS:
+    aliases = {
+        page_pair.en_path,
+        page_pair.es_path,
+        "/" + page_pair.source,
+        "/es/" + page_pair.source,
+    }
+    if page_pair.source == "index.html":
+        aliases.update({"/index.html", "/es/index.html"})
+    for alias in aliases:
+        PAIR_BY_SITE_PATH[alias] = page_pair
 
 CLASS_TOKEN = "contains(concat(' ', normalize-space(@class), ' '), ' {token} ')"
 CSS_URL_RE = re.compile(r"url\(\s*([\"']?)([^\"')]+)\1\s*\)", re.IGNORECASE)
@@ -218,18 +234,17 @@ def select_language_panel(document: etree._Element, locale: str) -> None:
 
 
 def rewrite_page_url(value: str, locale: str) -> str:
-    if locale != "es":
-        return value
-
     parsed = urlsplit(value)
     if parsed.scheme and parsed.netloc and f"{parsed.scheme}://{parsed.netloc}" != ORIGIN:
         return value
 
     path = parsed.path or "/"
-    pair = PAIR_BY_EN_PATH.get(path)
+    normalized = "/" + path.lstrip("/") if path != "/" else "/"
+    pair = PAIR_BY_SITE_PATH.get(normalized)
     if pair is None:
         return value
-    return urlunsplit((parsed.scheme, parsed.netloc, pair.es_path, parsed.query, parsed.fragment))
+    target_path = pair.en_path if locale == "en" else pair.es_path
+    return urlunsplit((parsed.scheme, parsed.netloc, target_path, parsed.query, parsed.fragment))
 
 
 def rewrite_json_value(value: Any, locale: str) -> Any:
@@ -385,7 +400,7 @@ def is_external_or_special(value: str) -> bool:
 
 
 def normalize_internal_href(value: str, locale: str) -> str:
-    if locale != "es" or not value:
+    if not value:
         return value
     if value.startswith("#"):
         return value
@@ -401,16 +416,15 @@ def normalize_internal_href(value: str, locale: str) -> str:
         path = parsed.path
 
     normalized = "/" + path.lstrip("/") if path else "/"
-    pair = PAIR_BY_EN_PATH.get(normalized)
+    pair = PAIR_BY_SITE_PATH.get(normalized)
     if pair is None:
         return value
 
-    return urlunsplit(("", "", pair.es_path, parsed.query, parsed.fragment))
+    target_path = pair.en_path if locale == "en" else pair.es_path
+    return urlunsplit(("", "", target_path, parsed.query, parsed.fragment))
 
 
 def rewrite_internal_links(document: etree._Element, locale: str) -> None:
-    if locale != "es":
-        return
     for anchor in document.xpath("//a[@href]"):
         # The switcher has already been written with the correct cross-locale links.
         parent = anchor.getparent()
@@ -640,7 +654,7 @@ def write_pages(repo: Path, output_root: Path, git_executable: str, source_ref: 
     for pair in PAIRS:
         source = sources[pair.source]
         outputs = (
-            (pair.source, build_variant(source, pair, "en", repo)),
+            (pair.en_file, build_variant(source, pair, "en", repo)),
             (pair.es_file, build_variant(source, pair, "es", repo)),
         )
         for relative_path, content in outputs:
