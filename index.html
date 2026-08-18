@@ -2047,6 +2047,27 @@ body {
   margin-top: 6px !important;
   transform: none !important;
 }
+
+/* Keep in-page section headings visible below the adaptive header. */
+#stay,
+#gallery,
+#reviews {
+  scroll-margin-top: 88px;
+}
+
+@media (max-width: 1020px) {
+  #stay,
+  #gallery,
+  #reviews {
+    scroll-margin-top: 124px;
+  }
+}
+
+html.reader-nav-expanded #stay,
+html.reader-nav-expanded #gallery,
+html.reader-nav-expanded #reviews {
+  scroll-margin-top: 190px;
+}
 </style>
 
 

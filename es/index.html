@@ -2047,6 +2047,27 @@ body {
   margin-top: 6px !important;
   transform: none !important;
 }
+
+/* Keep in-page section headings visible below the adaptive header. */
+#stay,
+#gallery,
+#reviews {
+  scroll-margin-top: 88px;
+}
+
+@media (max-width: 1020px) {
+  #stay,
+  #gallery,
+  #reviews {
+    scroll-margin-top: 124px;
+  }
+}
+
+html.reader-nav-expanded #stay,
+html.reader-nav-expanded #gallery,
+html.reader-nav-expanded #reviews {
+  scroll-margin-top: 190px;
+}
 </style>
 
 
@@ -2204,7 +2225,7 @@ body {
 <h2>Detalles de la estancia</h2>
 <div class="detail-panel">
 <p><strong>Entrada:</strong> 16:00 – 22:00<br><strong>Salida:</strong> 08:00 – 11:00</p>
-<p><strong>Dirección:</strong><br>Port Royale – Apartment 285<br>Calle Sierra Nevada, 4<br>38650 Los Cristianos<br>Arona, Tenerife, Spain</p>
+<p><strong>Dirección:</strong><br>Port Royale – Apartment 285<br>Calle Sierra Nevada, 4<br>38650 Los Cristianos<br>Arona, Tenerife, España</p>
 <p>
 <a class="stay-map-btn" href="https://www.google.com/maps/search/?api=1&amp;query=Calle%20Sierra%20Nevada%204%2C%2038650%20Los%20Cristianos%2C%20Arona%2C%20Tenerife%2C%20Spain" target="_blank" rel="noopener">
 <img alt="Google Maps" decoding="async" height="26" loading="lazy" src="/google-maps-icon-clean.png" width="26">
@@ -2326,9 +2347,9 @@ body {
 </div>
 </div>
 <div class="photo">
-<img alt="Playa El Camisón" class="gallery-item" src="/gallery-10-playa-el-camison.jpg" width="1600" height="1200" loading="lazy" decoding="async">
+<img alt="Playa del Camisón" class="gallery-item" src="/gallery-10-playa-el-camison.jpg" width="1600" height="1200" loading="lazy" decoding="async">
 <div class="caption">
-        <span class="caption-heading">Playa El Camisón</span>
+        <span class="caption-heading">Playa del Camisón</span>
         <span>Una preciosa playa cercana de aguas tranquilas, sol y paseos relajados</span>
 </div>
 </div>
