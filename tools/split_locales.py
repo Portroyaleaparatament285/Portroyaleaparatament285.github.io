@@ -21,7 +21,7 @@ from lxml import etree, html
 
 
 ORIGIN = "https://portroyale285.es"
-BUILD_VERSION = "20260817-locale1"
+BUILD_VERSION = "20260818-langbar1"
 SOURCE_COMMIT = "6d22c8f69fc581ec5a83de648a447988696f6791"
 
 

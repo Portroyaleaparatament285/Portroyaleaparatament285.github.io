@@ -27,6 +27,10 @@
       : null;
     var brandText = header.querySelector(".brand-text, .site-brand-text");
     var languageSelector = document.querySelector(".lang-switch");
+    var languageHome = null;
+    var desktopLanguageContainer = header.classList.contains("site-header-shell")
+      ? header.querySelector(".site-nav")
+      : header;
 
     if (brandText) {
       brandText.setAttribute("translate", "no");
@@ -36,10 +40,32 @@
     if (languageSelector) {
       languageSelector.setAttribute("translate", "no");
       languageSelector.classList.add("notranslate");
+
+      languageHome = document.createComment("language-switch-home");
+      languageSelector.parentNode.insertBefore(languageHome, languageSelector);
     }
 
     function isMobileLayout() {
       return mobileQuery ? mobileQuery.matches : window.innerWidth <= 1020;
+    }
+
+    function syncLanguagePlacement() {
+      if (!languageSelector || !languageHome || !desktopLanguageContainer) {
+        return;
+      }
+
+      if (isMobileLayout()) {
+        languageSelector.classList.remove("language-switch-in-header");
+        if (languageHome.parentNode && languageSelector.previousSibling !== languageHome) {
+          languageHome.parentNode.insertBefore(languageSelector, languageHome.nextSibling);
+        }
+        return;
+      }
+
+      languageSelector.classList.add("language-switch-in-header");
+      if (languageSelector.parentNode !== desktopLanguageContainer) {
+        desktopLanguageContainer.appendChild(languageSelector);
+      }
     }
 
     function clearExpandedState() {
@@ -97,8 +123,13 @@
       }
     }
 
-    window.addEventListener("resize", scheduleMeasurement, { passive: true });
-    window.addEventListener("orientationchange", scheduleMeasurement, { passive: true });
+    function handleLayoutChange() {
+      syncLanguagePlacement();
+      scheduleMeasurement();
+    }
+
+    window.addEventListener("resize", handleLayoutChange, { passive: true });
+    window.addEventListener("orientationchange", handleLayoutChange, { passive: true });
 
     if (typeof window.MutationObserver === "function") {
       var observer = new window.MutationObserver(scheduleMeasurement);
@@ -113,6 +144,7 @@
       document.fonts.ready.then(scheduleMeasurement);
     }
 
+    syncLanguagePlacement();
     scheduleMeasurement();
   }
 

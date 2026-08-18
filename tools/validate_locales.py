@@ -26,7 +26,7 @@ from xml.etree import ElementTree
 
 
 ORIGIN = "https://portroyale285.es"
-EXPECTED_ASSET_VERSION = "20260817-locale1"
+EXPECTED_ASSET_VERSION = "20260818-langbar1"
 FILENAMES = (
     "index.html",
     "guest-guide.html",

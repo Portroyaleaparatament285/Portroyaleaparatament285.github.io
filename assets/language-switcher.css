@@ -80,6 +80,21 @@ html[data-language="es"]:not([data-language-ready="true"]) body {
   outline-offset: 1px;
 }
 
+@media (min-width: 1021px) {
+  .lang-switch.language-switch-in-header {
+    position: static;
+    top: auto;
+    right: auto;
+    z-index: auto;
+    flex: 0 0 auto;
+    margin: 0;
+  }
+
+  .lang-switch.language-switch-in-header.lang-intro-pending {
+    animation: none !important;
+  }
+}
+
 @media (max-width: 700px) {
   .lang-switch {
     top: 17px;
