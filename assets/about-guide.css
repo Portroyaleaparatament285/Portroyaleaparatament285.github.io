@@ -185,12 +185,6 @@ body.about-guide-page {
   transform: translateX(-2px);
 }
 
-@media (min-width: 1021px) {
-  .about-guide-page .site-nav-links {
-    padding-right: 86px;
-  }
-}
-
 @media (max-width: 900px) {
   .about-layout {
     grid-template-columns: minmax(0, 1fr);
