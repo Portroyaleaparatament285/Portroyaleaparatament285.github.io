@@ -26,6 +26,7 @@ from xml.etree import ElementTree
 
 
 ORIGIN = "https://portroyale285.es"
+LODGING_ENTITY_ID = f"{ORIGIN}/#lodging"
 EXPECTED_ASSET_VERSION = "20260818-langbar1"
 FILENAMES = (
     "index.html",
@@ -496,6 +497,21 @@ def check_jsonld(
         return
 
     objects = list(json_objects(payload))
+    lodging_entities = [obj for obj in objects if obj.get("@type") == "LodgingBusiness"]
+    if document.spec.filename == "index.html":
+        if len(lodging_entities) != 1:
+            add_error(
+                errors,
+                name,
+                f"expected one LodgingBusiness entity, found {len(lodging_entities)}",
+            )
+        elif lodging_entities[0].get("@id") != LODGING_ENTITY_ID:
+            add_error(
+                errors,
+                name,
+                f"LodgingBusiness @id is {lodging_entities[0].get('@id')!r}, "
+                f"expected {LODGING_ENTITY_ID!r}",
+            )
     languages = [obj.get("inLanguage") for obj in objects if "inLanguage" in obj]
     expected_language = REGIONAL_LANGUAGE[document.spec.language]
     if not languages:
@@ -529,7 +545,11 @@ def check_jsonld(
             found = identity_url(obj["mainEntityOfPage"])
             if found:
                 values.append(found)
-        if "@id" in obj and isinstance(obj["@id"], str):
+        shared_lodging_id = (
+            obj.get("@type") == "LodgingBusiness"
+            and obj.get("@id") == LODGING_ENTITY_ID
+        )
+        if not shared_lodging_id and isinstance(obj.get("@id"), str):
             values.append(canonicalise_public_url(obj["@id"]))
         if document.spec.public_url in values:
             identity_found = True
@@ -543,6 +563,12 @@ def check_jsonld(
     for obj in objects:
         object_type = obj.get("@type")
         for key in ("url", "item", "mainEntityOfPage", "@id"):
+            if (
+                object_type == "LodgingBusiness"
+                and key == "@id"
+                and obj.get("@id") == LODGING_ENTITY_ID
+            ):
+                continue
             value = identity_url(obj.get(key))
             if not value:
                 continue
