@@ -1,0 +1,19 @@
+/* Shared footer treatment for the Tenerife Guide archive and author page. */
+.guide-index-page .guide-archive-note {
+  padding-top: 0;
+  border-top: 0;
+}
+
+:is(.guide-index-page, .about-guide-page) .site-footer-shell {
+  background: transparent;
+  border-top: 0;
+}
+
+:is(.guide-index-page, .about-guide-page) .site-footer-shell::before {
+  content: "";
+  display: block;
+  width: min(680px, 72%);
+  height: 1px;
+  margin: 0 auto 26px;
+  background: rgba(32, 37, 45, .12);
+}
