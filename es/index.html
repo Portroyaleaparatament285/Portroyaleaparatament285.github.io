@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="utf-8"><link href="/favicon.svg" rel="icon" type="image/svg+xml"><link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"><link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"><link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"><link href="/site.webmanifest" rel="manifest"><link href="/favicon.ico" rel="shortcut icon"><meta content="#ffffff" name="theme-color"><!-- Favicon / app icons -->
-<link as="image" href="/hero.jpg" rel="preload">
+<link as="image" href="/hero.webp" rel="preload" type="image/webp">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <title>Port Royale 285 Los Cristianos | Acceso directo a la piscina</title>
 <meta content="Disfruta de Port Royale 285 en Los Cristianos, Tenerife: acceso directo a la piscina climatizada, terraza privada, dos baños y Wi-Fi de fibra." name="description">
@@ -149,6 +149,8 @@
       display:flex;
       align-items:center;
       gap:14px;
+      color:inherit;
+      text-decoration:none;
     }
     .brand-mark {
       width:42px;
@@ -200,7 +202,6 @@
       inset: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover;
     }
     .hero::after {
       content: "";
@@ -322,7 +323,6 @@ h1 {
 .hero .actions {
   display: flex;
   flex-wrap: wrap;
-  gap: 28px;
   margin-top: 6px;
 
   opacity: 0;
@@ -435,19 +435,14 @@ h1 {
     .gallery {
       display: grid;
       grid-template-columns: repeat(3,1fr);
-      gap: 16px;
       margin-top: 14px;
     }
     .photo {
-      overflow: hidden;
       border-radius: 24px;
       background: white;
       border: 1px solid var(--line);
-      box-shadow: 0 8px 24px rgba(0,0,0,.04);
     }
-    .photo img { width: 100%; height: 280px; object-fit: cover; display: block; }
-    .caption { padding: 14px 16px; font-weight: 700; }
-    .caption span { display: block; margin-top: 4px; color: var(--muted); font-weight: 500; }
+    .photo img { height: 280px; }
     .caption .caption-heading { margin-top: 0; color: inherit; font-weight: 700; }
 
     .langs {
@@ -1002,11 +997,6 @@ body {
   }
 }
 
-.footer-brand {
-  display: flex;
-  justify-content: center;
-  margin-top: 8px;
-}
 .footer .brand-mark {
   width: 52px;
   height: 52px;
@@ -1233,11 +1223,6 @@ body {
     border-radius: 16px;
     margin: 16px 0;
   }
-}
-
-/* Hero CTA buttons appear together with the top navbar cascade */
-.hero .actions {
-  animation-delay: 2.9s !important;
 }
 
 /* Existing bottom CTA only: hidden on load, appears after the user starts scrolling */
@@ -2151,7 +2136,7 @@ html.reader-nav-expanded #reviews {
 <nav class="lang-switch lang-intro-pending notranslate" translate="no" aria-label="Selector de idioma"><a href="/" hreflang="en" lang="en" title="English" aria-label="English">EN</a><a href="/es/" hreflang="es" lang="es" title="Español" aria-label="Español" class="active" aria-current="page">ES</a></nav>
 <div class="wrap">
 <div class="nav" id="readerTopBar">
-<div class="brand">
+<a class="brand" href="/es/" aria-label="Inicio de Port Royale Apartment 285">
 <div aria-hidden="true" class="brand-mark"><svg width="30" height="30"
    version="1.1"
    id="svg1"
@@ -2186,11 +2171,11 @@ html.reader-nav-expanded #reviews {
 <div class="brand-title">PORT ROYALE</div>
 <div class="brand-sub">Apartment 285</div>
 </div>
-</div>
+</a>
 <div class="navlinks"><a href="#stay">Información</a><a href="#gallery">Galería</a><a href="#reviews">Reseñas</a><a href="https://www.booking.com/Share-HnffRCx" target="_blank" rel="noopener">Reservar ahora</a></div>
 </div>
 <section class="hero">
-<img alt="Terraza con vistas a la piscina de Port Royale Apartment 285" decoding="async" fetchpriority="high" loading="eager" src="/hero.jpg" width="1024" height="1536">
+<picture><source srcset="/hero.webp" type="image/webp"><img alt="Terraza con vistas a la piscina de Port Royale Apartment 285" decoding="async" fetchpriority="high" loading="eager" src="/hero.jpg" width="1024" height="1536"></picture>
 <div class="hero-content">
 <div class="eyebrow">
 <span class="pill">Acceso directo a la piscina</span>
@@ -2328,14 +2313,14 @@ html.reader-nav-expanded #reviews {
 <button type="button" class="gallery-open-btn" aria-label="Ver la galería completa">Ver la galería completa</button></div>
 </div>
 <div class="photo">
-<img alt="Piscina climatizada" class="gallery-item" src="/gallery-2-heated-pool.jpg" width="1535" height="1024" loading="lazy" decoding="async">
+<picture><source srcset="/gallery-2-heated-pool.webp" type="image/webp"><img alt="Piscina climatizada" class="gallery-item" src="/gallery-2-heated-pool.jpg" width="1535" height="1024" loading="lazy" decoding="async"></picture>
 <div class="caption">
         <span class="caption-heading">Piscina climatizada</span>
         <span>Disfruta de la piscina climatizada durante todo el año</span>
 </div>
 </div>
 <div class="photo">
-<img alt="Patio de la piscina de Port Royale" class="gallery-item" src="/gallery-11-port-royale-pool-courtyard.jpg" width="1600" height="900" loading="lazy" decoding="async">
+<picture><source srcset="/gallery-11-port-royale-pool-courtyard.webp" type="image/webp"><img alt="Patio de la piscina de Port Royale" class="gallery-item" src="/gallery-11-port-royale-pool-courtyard.jpg" width="1600" height="900" loading="lazy" decoding="async"></picture>
 <div class="caption">
         <span class="caption-heading">Patio de la piscina de Port Royale</span>
         <span>Arquitectura encalada, flores y tumbonas alrededor de la piscina</span>
@@ -2376,21 +2361,21 @@ html.reader-nav-expanded #reviews {
 </div>
 </div>
 <div class="photo">
-<img alt="Baño principal" class="gallery-item" src="/gallery-6-main-bathroom.jpg" width="1448" height="1086" loading="lazy" decoding="async">
+<picture><source srcset="/gallery-6-main-bathroom.webp" type="image/webp"><img alt="Baño principal" class="gallery-item" src="/gallery-6-main-bathroom.jpg" width="1448" height="1086" loading="lazy" decoding="async"></picture>
 <div class="caption">
         <span class="caption-heading">Baño principal</span>
         <span>Baño amplio con ducha a ras de suelo</span>
 </div>
 </div>
 <div class="photo">
-<img alt="Segundo baño" class="gallery-item" src="/gallery-7-second-bathroom.jpg" width="1086" height="1448" loading="lazy" decoding="async">
+<picture><source srcset="/gallery-7-second-bathroom.webp" type="image/webp"><img alt="Segundo baño" class="gallery-item" src="/gallery-7-second-bathroom.jpg" width="1086" height="1448" loading="lazy" decoding="async"></picture>
 <div class="caption">
         <span class="caption-heading">Segundo baño</span>
         <span>Un baño adicional para mayor comodidad</span>
 </div>
 </div>
 <div class="photo">
-<img alt="Playa del Camisón" class="gallery-item" src="/gallery-10-playa-el-camison.jpg" width="1600" height="1200" loading="lazy" decoding="async">
+<picture><source srcset="/gallery-10-playa-el-camison.webp" type="image/webp"><img alt="Playa del Camisón" class="gallery-item" src="/gallery-10-playa-el-camison.jpg" width="1600" height="1200" loading="lazy" decoding="async"></picture>
 <div class="caption">
         <span class="caption-heading">Playa del Camisón</span>
         <span>Una preciosa playa cercana de aguas tranquilas, sol y paseos relajados</span>

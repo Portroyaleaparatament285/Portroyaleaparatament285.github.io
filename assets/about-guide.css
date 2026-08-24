@@ -201,15 +201,12 @@ body.about-guide-page {
 
 @media (max-width: 1020px) {
   .about-guide-page .site-nav-links {
-    width: 100%;
     justify-content: space-between;
     flex-wrap: nowrap;
     gap: 8px;
   }
 
   .about-guide-page .site-nav-links a {
-    padding: 0;
-    font-size: 15px;
     line-height: 1.1;
   }
 }
@@ -248,12 +245,6 @@ body.about-guide-page {
 @media (max-width: 480px) {
   .guide-home-footer .guide-archive-link {
     width: min(100%, 280px);
-  }
-}
-
-@media (max-width: 380px) {
-  .about-guide-page .site-nav-links a {
-    font-size: 14px;
   }
 }
 

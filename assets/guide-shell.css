@@ -414,7 +414,6 @@ body.guide-index-page {
 }
 
 .guide-archive .guide-card-grid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
   margin: 0;
 }
 
@@ -431,10 +430,6 @@ body.guide-index-page {
 /* Article integration */
 body.article-page {
   overflow-x: hidden;
-}
-
-.article-page .site-shell {
-  width: min(1500px, calc(100% - 36px));
 }
 
 .article-page picture {
@@ -614,7 +609,6 @@ body.article-page {
 
   .site-nav-links a {
     padding: 0;
-    font-size: 15px;
   }
 
   .site-brand {
@@ -637,7 +631,6 @@ body.article-page {
     left: 50%;
     z-index: 1;
     transform: translate(-50%, -50%);
-    text-align: center;
     pointer-events: none;
   }
 
@@ -713,8 +706,7 @@ body.article-page {
 }
 
 @media (max-width: 640px) {
-  .site-shell,
-  .article-page .site-shell {
+  .site-shell {
     width: min(100% - 24px, 1240px);
   }
 
@@ -731,7 +723,6 @@ body.article-page {
   }
 
   .site-brand-title {
-    font-size: 24px;
     letter-spacing: 2.4px;
   }
 
