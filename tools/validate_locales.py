@@ -37,6 +37,7 @@ PAGE_PAIRS = (
         "about-tenerife-guide.html",
         "about-tenerife-guide.html",
     ),
+    ("legal-privacy.html", "legal-privacy.html", "legal-privacy.html"),
     (
         "africa-and-the-west-tenerife.html",
         "africa-and-the-west-tenerife.html",
