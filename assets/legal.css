@@ -241,6 +241,7 @@ body.legal-page {
   margin: 0;
   font-size: 14px;
   line-height: 1.55;
+  overflow-wrap: anywhere;
 }
 
 .legal-updated {
