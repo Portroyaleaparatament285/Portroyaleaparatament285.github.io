@@ -1842,6 +1842,29 @@ body {
   letter-spacing: .03em;
 }
 
+.mobile-booking-license {
+  display: none;
+}
+
+@media (max-width: 1020px) {
+  .mobile-booking-license {
+    display: block;
+    width: 100%;
+    margin: 12px 0 0;
+    color: rgba(255,255,255,.9);
+    font-size: 13px;
+    line-height: 1.35;
+    font-weight: 600;
+    letter-spacing: .02em;
+    text-align: center;
+    text-shadow: 0 1px 5px rgba(0,0,0,.45);
+    opacity: 0;
+    transform: translateY(16px);
+    animation: actionsFade .8s cubic-bezier(.22,1,.36,1) forwards;
+    animation-delay: 2.9s;
+  }
+}
+
 .final-booking-cta .btn {
   flex: 0 0 auto;
   min-width: 132px;
@@ -2198,6 +2221,7 @@ html.reader-nav-expanded #reviews {
 <a class="btn primary booking-btn" href="https://www.booking.com/Share-HnffRCx" target="_blank" rel="noopener">Reservar ahora</a>
 <a class="btn secondary" href="#gallery">Fotos</a>
 </div>
+<div class="mobile-booking-license">Vivienda vacacional registrada · VV-38-4-0101051</div>
 </div>
 </section>
 <section class="section">
