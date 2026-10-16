@@ -1,0 +1,228 @@
+/* Homepage additions, scoped to keep the existing site shell and hero intact. */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 16px;
+  z-index: 10001;
+  padding: 12px 18px;
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  font-weight: 700;
+  transform: translateY(-180%);
+}
+.skip-link:focus { transform: translateY(0); }
+#main-content { scroll-margin-top: 90px; }
+#main-content:focus { outline: none; }
+:where(a, button, [tabindex]):focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.trust-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 18px 0 0;
+  padding: 18px 8px;
+  list-style: none;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: var(--paper);
+}
+.trust-strip li { margin: 0; padding: 2px 18px; text-align: center; }
+.trust-strip li + li { border-left: 1px solid rgba(32,37,45,.12); }
+.trust-strip strong { display: block; color: var(--accent); font-size: 15px; }
+.trust-strip span { display: block; margin-top: 3px; color: #5f6670; font-size: 13px; }
+.trust-strip a { color: inherit; text-decoration: none; }
+.trust-strip a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+.contact-languages { margin: 10px 0 14px; font-size: 15px; color: #5f6670; line-height: 1.5; }
+.contact-card .contact-icon { display: inline-flex; align-items: center; justify-content: center; color: var(--accent); }
+.contact-card .contact-icon svg { display: block; width: 20px; height: 20px; }
+
+#reviews .reviews-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  margin-bottom: 18px;
+  padding: 6px 0 18px;
+  border-bottom: 1px solid rgba(32,37,45,.12);
+}
+#reviews .reviews-summary h3 { display: flex; align-items: center; gap: 12px; margin: 0 0 8px; font-size: 20px; }
+.review-total-score, .review-score {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border-radius: 8px 8px 8px 0;
+  background: #003b95;
+  color: #fff;
+  font-weight: 700;
+}
+.review-total-score { width: 44px; height: 44px; font-size: 20px; }
+#reviews .reviews-summary p { margin: 0; font-size: 15px; color: #5f6670; }
+#reviews .reviews-summary > a { color: var(--accent); font-size: 14px; font-weight: 600; }
+#reviews .review-track {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+#reviews .review-track.is-carousel {
+  grid-template-columns: none;
+  grid-auto-flow: column;
+  grid-auto-columns: calc((100% - 36px) / 3);
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+#reviews .review-track.is-carousel::-webkit-scrollbar { display: none; }
+#reviews .review-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  padding: 20px;
+  scroll-snap-align: start;
+  box-shadow: none;
+}
+#reviews .review-guest { display: flex; align-items: center; gap: 10px; }
+.review-avatar {
+  display: grid;
+  place-items: center;
+  flex: 0 0 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #f1ede6;
+  color: #575b61;
+  font-size: 15px;
+  font-weight: 600;
+}
+.review-guest-details { flex: 1; min-width: 0; }
+#reviews .review-guest h3 { margin: 0 0 2px; font-size: 16px; line-height: 1.3; }
+.review-country { display: block; color: #68707c; font-size: 12px; line-height: 1.4; }
+.review-score { width: 36px; height: 36px; font-size: 16px; }
+#reviews .review-quote { flex: 1; margin: 14px 0; padding: 0; border: 0; }
+#reviews .review-quote p { margin: 0; font-size: 15px; line-height: 1.65; color: #414852; }
+#reviews .review-source {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: #003b95;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+}
+#reviews .review-source:hover { text-decoration: underline; text-underline-offset: 3px; }
+.review-source img { display: block; width: 24px; height: 24px; flex: 0 0 auto; }
+.review-source time { margin-left: auto; color: #68707c; font-size: 11px; font-weight: 400; }
+#reviews .review-selection-note { margin: 14px 0 0; color: #68707c; font-size: 12px; line-height: 1.5; text-align: center; }
+.review-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  margin-top: 18px;
+}
+.review-controls[hidden] { display: none; }
+.review-arrow {
+  display: inline-grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 1px solid rgba(32,37,45,.15);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--accent);
+  font-size: 26px;
+  font-family: inherit;
+  cursor: pointer;
+}
+.review-arrow:hover { background: #f4efe7; }
+.review-status { min-width: 130px; color: #5f6670; font-size: 14px; text-align: center; }
+
+.stay-location-layout { display: grid; grid-template-columns: 1fr 1.35fr; gap: 28px; align-items: center; }
+.location-map {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+  min-height: 280px;
+  overflow: hidden;
+  border: 1px solid rgba(32,37,45,.12);
+  border-radius: 16px;
+  background: #f7f4ee;
+}
+.map-placeholder {
+  width: 100%;
+  align-self: stretch;
+  padding: 32px 24px;
+  text-align: center;
+  background: linear-gradient(rgba(255,255,255,.84), rgba(255,255,255,.84)), url("../gallery-2-heated-pool.jpg") center 62% / cover no-repeat;
+  background-image: linear-gradient(rgba(255,255,255,.84), rgba(255,255,255,.84)), image-set(url("../gallery-2-heated-pool.webp") type("image/webp"), url("../gallery-2-heated-pool.jpg") type("image/jpeg"));
+}
+.map-placeholder .map-brand-icon { width: 40px; height: 40px; padding: 4px; border-radius: 50%; background: #fff; object-fit: contain; }
+#stay .map-placeholder h3 { margin: 8px 0; font-size: 18px; }
+#stay .map-placeholder p { max-width: 400px; margin: 0 auto 16px; font-size: 14px; line-height: 1.5; color: #5f6670; }
+.map-placeholder a { color: var(--accent); text-underline-offset: 2px; }
+.map-load-btn {
+  padding: 11px 18px;
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  background: var(--accent);
+  color: white;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.map-load-btn:hover { background: #185b63; }
+.location-map iframe { display: block; width: 100%; height: 320px; border: 0; }
+.map-hide-btn {
+  display: block;
+  margin: 8px 0 0 auto;
+  padding: 6px 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font: inherit;
+  font-size: 13px;
+  cursor: pointer;
+}
+.map-hide-btn[hidden] { display: none; }
+
+@media (max-width: 1020px) {
+  .stay-location-layout { grid-template-columns: 1fr; gap: 8px; }
+  .location-map iframe { height: 300px; }
+}
+@media (min-width: 641px) and (max-width: 1020px) {
+  #reviews .review-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #reviews .review-track.is-carousel { grid-template-columns: none; grid-auto-columns: calc((100% - 18px) / 2); }
+}
+@media (max-width: 640px) {
+  .stay-highlights > .grid { gap: 16px; }
+  .stay-highlights > .grid > .card:not(:last-child) { margin-bottom: 0 !important; }
+  .trust-strip { grid-template-columns: 1fr; padding: 4px 16px; border-radius: 18px; }
+  .trust-strip li { padding: 12px 2px; }
+  .trust-strip li + li { border-left: 0; border-top: 1px solid rgba(32,37,45,.10); }
+  .trust-strip strong { font-size: 14px; }
+  .trust-strip span { font-size: 12px; }
+  .contact-languages { font-size: 14px; }
+  #reviews .reviews-summary h3 { font-size: 17px; }
+  #reviews .reviews-summary p { font-size: 14px; }
+  #reviews .review-track { grid-template-columns: 1fr; }
+  #reviews .review-track.is-carousel { grid-template-columns: none; grid-auto-columns: 100%; }
+  .review-controls { gap: 12px; }
+  .location-map { min-height: 250px; }
+  .map-placeholder { padding: 20px 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
