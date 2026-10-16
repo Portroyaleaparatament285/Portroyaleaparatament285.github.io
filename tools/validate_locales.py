@@ -54,6 +54,11 @@ PAGE_PAIRS = (
         "diario-de-tenerife-verano-2026.html",
     ),
     ("la-recova-tenerife.html", "la-recova-tenerife.html", "la-recova-tenerife.html"),
+    (
+        "sicilian-bakery-tenerife.html",
+        "sicilian-bakery-tenerife.html",
+        "pasteleria-siciliana-tenerife.html",
+    ),
 )
 LEGACY_REDIRECTS = {
     "africa-si-occidentul-tenerife.html": f"{ORIGIN}/africa-and-the-west-tenerife.html",
@@ -568,7 +573,7 @@ def check_jsonld(
         obj
         for obj in roots
         if obj.get("@type")
-        in {"Article", "WebPage", "CollectionPage", "LodgingBusiness", "WebSite"}
+        in {"Article", "BlogPosting", "WebPage", "CollectionPage", "LodgingBusiness", "WebSite"}
     ]
     if not primary:
         add_error(errors, name, "JSON-LD has no recognizable primary page entity")
