@@ -207,6 +207,16 @@
   #reviews .review-track.is-carousel { grid-template-columns: none; grid-auto-columns: calc((100% - 18px) / 2); }
 }
 @media (max-width: 640px) {
+  .hero > .hero-content {
+    /* Reserve the former 52.5px CTA row and 6px margin to keep the text in place. */
+    padding-bottom: calc(28px + 52.5px + 6px);
+  }
+  .hero > .hero-content > .actions {
+    position: absolute !important;
+    inset: auto 28px 16px !important;
+    width: auto !important;
+    margin-top: 0 !important;
+  }
   .stay-highlights > .grid { gap: 16px; }
   .stay-highlights > .grid > .card:not(:last-child) { margin-bottom: 0 !important; }
   .trust-strip { grid-template-columns: 1fr; padding: 4px 16px; border-radius: 18px; }

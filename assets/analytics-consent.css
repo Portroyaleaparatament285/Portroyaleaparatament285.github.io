@@ -1,0 +1,190 @@
+/* Self-contained consent UI: no changes to the hero, navbar or bottom bar. */
+.pr-consent-panel,
+.pr-consent-panel * {
+  box-sizing: border-box;
+}
+
+.pr-consent-panel {
+  position: fixed;
+  z-index: 9000;
+  right: 20px;
+  bottom: 20px;
+  width: min(500px, calc(100% - 40px));
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  padding: 22px;
+  color: #27322f;
+  background: #fffdf9;
+  border: 1px solid #d8d5ce;
+  border-radius: 18px;
+  box-shadow: 0 12px 42px rgba(23, 32, 30, .18);
+  text-align: left;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.pr-consent-panel[hidden],
+.pr-consent-panel [hidden] {
+  display: none !important;
+}
+
+.pr-consent-panel .pr-consent-title {
+  margin: 0 0 10px;
+  color: #173f43;
+  font: 700 18px/1.3 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.pr-consent-panel p {
+  margin: 0 0 14px;
+  color: #46504d;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.pr-consent-panel .pr-consent-current,
+.pr-consent-panel .pr-consent-preview {
+  font-size: 12px;
+}
+
+.pr-consent-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.pr-consent-panel .pr-consent-choice {
+  width: 100%;
+  min-height: 44px;
+  margin: 0;
+  padding: 10px 14px;
+  border: 1px solid #1f6f78;
+  border-radius: 10px;
+  background: #1f6f78;
+  color: #fff;
+  font: 700 14px/1.4 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  cursor: pointer;
+}
+
+.pr-consent-panel .pr-consent-choice:hover {
+  background: #173f43;
+  border-color: #173f43;
+}
+
+.pr-consent-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4px 14px;
+  margin-top: 8px;
+}
+
+.pr-consent-panel .pr-consent-privacy,
+.pr-consent-panel .pr-consent-close,
+.pr-cookie-settings {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 0;
+  padding: 5px 0;
+  color: #1f6f78;
+  background: transparent;
+  border: 0;
+  border-radius: 2px;
+  font: 700 12.5px/1.4 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.pr-consent-footer {
+  margin: 0;
+  text-align: center;
+}
+
+.pr-footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 12px;
+}
+
+.legal-footer-row.pr-footer-links {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.pr-footer-links a,
+.pr-footer-links .pr-cookie-settings {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  margin: 0;
+  padding: 5px 0;
+  color: #466265;
+  font: 700 12.5px/1.4 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  letter-spacing: .025em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.pr-footer-links a:hover,
+.pr-footer-links .pr-cookie-settings:hover {
+  color: #1f6f78;
+  text-decoration: underline;
+}
+
+.pr-footer-separator {
+  color: #68707c;
+  font: 400 13px/1 Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.pr-consent-panel :focus-visible,
+.pr-cookie-settings:focus-visible {
+  outline: 3px solid #80531e;
+  outline-offset: 3px;
+}
+
+.pr-consent-sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+@media (max-width: 1020px) {
+  .pr-consent-panel[data-bottom-bar="true"] {
+    bottom: calc(80px + env(safe-area-inset-bottom));
+    max-height: calc(100dvh - 170px - env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 640px) {
+  .pr-consent-panel {
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    width: calc(100% - 24px);
+    padding: 18px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 380px) {
+  .pr-footer-links {
+    column-gap: 4px;
+  }
+
+  .pr-footer-links a,
+  .pr-footer-links .pr-cookie-settings {
+    font-size: 11.5px;
+    letter-spacing: 0;
+  }
+}
