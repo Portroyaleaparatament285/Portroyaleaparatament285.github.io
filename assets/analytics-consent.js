@@ -15,6 +15,7 @@
   var words = spanish ? {
     title: "Cookies de analítica opcionales",
     description: "Con tu permiso, usamos Google Analytics para conocer las visitas y los clics hacia Booking.com. Puedes rechazarlo y seguir usando todo el sitio.",
+    mobileDescription: "Las cookies opcionales de Google Analytics miden visitas y clics a Booking.com. Rechazarlas no limita el sitio.",
     privacy: "Privacidad y cookies", accept: "Aceptar", reject: "Rechazar",
     settings: "Configurar cookies", close: "Mantener mi elección",
     enabled: "Analítica aceptada.", disabled: "Analítica rechazada.",
@@ -22,6 +23,7 @@
   } : {
     title: "Optional analytics cookies",
     description: "With your permission, we use Google Analytics to understand visits and clicks to Booking.com. You can reject it and still use the whole site.",
+    mobileDescription: "Optional Google Analytics cookies measure visits and Booking.com clicks. Rejecting won’t limit the site.",
     privacy: "Privacy & cookies", accept: "Accept", reject: "Reject",
     settings: "Cookie settings", close: "Keep current choice",
     enabled: "Analytics accepted.", disabled: "Analytics rejected.",
@@ -128,8 +130,10 @@
   var heading = element("h2", "pr-consent-title", words.title);
   heading.id = "pr-consent-title";
   heading.tabIndex = -1;
-  var description = element("p", "pr-consent-description", words.description);
+  var description = element("p", "pr-consent-description");
   description.id = "pr-consent-description";
+  description.appendChild(element("span", "pr-consent-description-full", words.description));
+  description.appendChild(element("span", "pr-consent-description-mobile", words.mobileDescription));
   panel.appendChild(heading);
   panel.appendChild(description);
   var current = element("p", "pr-consent-current");

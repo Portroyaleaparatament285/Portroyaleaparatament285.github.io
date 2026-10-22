@@ -218,6 +218,16 @@
     margin-top: 0 !important;
   }
   .stay-highlights > .grid { gap: 16px; }
+  .stay-highlights .card h3 {
+    margin: 0 0 6px !important;
+    font-size: 18px;
+    line-height: 1.25 !important;
+  }
+  .stay-highlights .card p {
+    margin: 0;
+    font-size: 15px;
+    line-height: 1.5 !important;
+  }
   .stay-highlights > .grid > .card:not(:last-child) { margin-bottom: 0 !important; }
   .trust-strip { grid-template-columns: 1fr; padding: 4px 16px; border-radius: 18px; }
   .trust-strip li { padding: 12px 2px; }

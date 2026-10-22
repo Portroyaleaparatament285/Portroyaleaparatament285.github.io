@@ -121,6 +121,22 @@ test("initial load: no tag, dataLayer, cookies or implicit permission", () => {
   assert.equal(p.commands().length, 0);
 });
 
+test("compact copy: both languages retain optional analytics, provider and refusal information", () => {
+  for (const lang of ["en", "es"]) {
+    const p = page({ lang });
+    const description = p.document.getElementById("pr-consent-description");
+    const full = description.children.find(node => node.className === "pr-consent-description-full");
+    const mobile = description.children.find(node => node.className === "pr-consent-description-mobile");
+    assert.ok(full && mobile);
+    assert.match(mobile.textContent, /Google Analytics/);
+    assert.match(mobile.textContent, /Booking\.com/);
+    assert.match(mobile.textContent, lang === "es" ? /opcionales.*Rechazarlas no limita/ : /Optional.*Rejecting won’t limit/);
+    assert.ok(mobile.textContent.length < full.textContent.length);
+    assert.equal(p.panel.attributes["aria-describedby"], description.id);
+    assert.equal(p.scripts().length, 0);
+  }
+});
+
 test("reject: remembered refusal, no tag or consent ping", () => {
   const p = page(); p.reject();
   assert.equal(p.panel.hidden, true);
