@@ -2,8 +2,9 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><link href="favicon.svg" rel="icon" type="image/svg+xml"><link href="favicon-32x32.png" rel="icon" sizes="32x32" type="image/png"><link href="favicon-16x16.png" rel="icon" sizes="16x16" type="image/png"><link href="apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180"><link href="site.webmanifest" rel="manifest"><link href="favicon.ico" rel="shortcut icon"><meta content="#ffffff" name="theme-color"><!-- Favicon / app icons -->
-<link as="image" href="hero.webp" rel="preload" type="image/webp">
+
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<link as="image" href="hero-optimized.avif" imagesrcset="hero-mobile.avif 768w, hero-optimized.avif 1024w" imagesizes="100vw" rel="preload" type="image/avif" fetchpriority="high">
 <title>Port Royale 285 Los Cristianos | Direct Pool Access</title>
 <meta content="Stay at Port Royale 285 in Los Cristianos, Tenerife, with direct access to the heated pool, a private terrace, two bathrooms and fast fibre Wi-Fi." name="description">
 <meta content="index,follow,max-image-preview:large" name="robots">
@@ -1394,7 +1395,7 @@ body {
   font-size:12.5px!important;
   line-height:1!important;
   letter-spacing:1.2px!important;
-  color:var(--muted)!important;
+  color:#505762!important;
   text-transform:uppercase!important;
   text-align:center!important;
 }
@@ -1900,13 +1901,13 @@ body {
   transition: transform .15s ease, box-shadow .15s ease;
 }
 .whatsapp-btn {
-  background: #25D366;
+  background: #12813c;
 }
 .whatsapp-btn:hover {
-  background: #1ebe5d;
+  background: #106e34;
 }
 .facebook-contact-btn {
-  background: #1877F2;
+  background: #1663c7;
 }
 .facebook-contact-btn:hover {
   background: #0f63d6;
@@ -2163,14 +2164,14 @@ html.reader-nav-expanded #reviews {
 
 <link rel="stylesheet" href="assets/guide-shell.css?v=20260818-langbar1">
 <link rel="stylesheet" href="assets/about-guide.css?v=20260818-about3">
-<link rel="stylesheet" href="/assets/home-enhancements.css?v=20261022-compact1">
+<link rel="stylesheet" href="/assets/home-enhancements.css?v=20261028-a11y1">
 <script src="/assets/home-enhancements.js?v=20261015-1" defer></script>
 <link rel="stylesheet" href="/assets/analytics-consent.css?v=20261022-compact1">
 <script src="/assets/analytics-consent.js?v=20261022-compact1" defer></script>
 </head>
 <body>
 <a class="skip-link" href="#main-content">Skip to main content</a>
-<nav class="lang-switch lang-intro-pending notranslate" translate="no" aria-label="Language selector"><a href="/" hreflang="en" lang="en" title="English" aria-label="English" class="active" aria-current="page">EN</a><a href="/es/" hreflang="es" lang="es" title="Español" aria-label="Español">ES</a></nav>
+<nav class="lang-switch lang-intro-pending notranslate" translate="no" aria-label="Language selector"><a href="/" hreflang="en" lang="en" title="English" aria-label="EN — English" class="active" aria-current="page">EN</a><a href="/es/" hreflang="es" lang="es" title="Español" aria-label="ES — Español">ES</a></nav>
 <div class="wrap">
 <header class="nav" id="readerTopBar">
 <a class="brand" href="/" aria-label="Port Royale Apartment 285 home">
@@ -2213,7 +2214,7 @@ html.reader-nav-expanded #reviews {
 </header>
 <main id="main-content" tabindex="-1">
 <section class="hero">
-<picture><source srcset="hero.webp" type="image/webp"><img alt="Port Royale Apartment 285 pool view terrace" decoding="async" fetchpriority="high" loading="eager" src="hero.jpg" width="1024" height="1536"></picture>
+<picture><source srcset="hero-mobile.avif 768w, hero-optimized.avif 1024w" sizes="100vw" type="image/avif"><source srcset="hero-mobile.webp 768w, hero-optimized.webp 1024w" sizes="100vw" type="image/webp"><img alt="Port Royale Apartment 285 pool view terrace" decoding="async" fetchpriority="high" loading="eager" src="hero.jpg" width="1024" height="1536"></picture>
 <div class="hero-content">
 <div class="eyebrow">
 <span class="pill">Direct Pool Access</span>
@@ -2259,7 +2260,7 @@ html.reader-nav-expanded #reviews {
 <h2>Gallery</h2>
 <div class="gallery">
 <div class="photo">
-<img alt="Direct Pool Access Terrace" class="gallery-item" src="gallery-1-pool-terrace.jpg" width="1024" height="683" loading="lazy" decoding="async">
+<img alt="Direct Pool Access Terrace" class="gallery-item" src="gallery-1-pool-terrace.webp" data-full-src="gallery-1-pool-terrace.jpg" width="1024" height="683" loading="lazy" decoding="async">
 <div class="caption">
         <span class="caption-heading">Direct Pool Access Terrace</span>
         <span>Private terrace just steps from the heated pool</span>
@@ -2479,7 +2480,7 @@ Arona, Tenerife, Spain</p>
 </svg></span>
 <span class="contact-btn-text">Message us on WhatsApp</span>
 </a>
-<a class="facebook-contact-btn" href="https://www.facebook.com/PortRoyale285" target="_blank" rel="noopener" aria-label="Follow us on Facebook">
+<a class="facebook-contact-btn" href="https://www.facebook.com/PortRoyale285" target="_blank" rel="noopener">
 <span class="contact-btn-icon" aria-hidden="true">f</span>
 <span class="contact-btn-text">Follow us on Facebook</span>
 </a>
@@ -2503,7 +2504,7 @@ Arona, Tenerife, Spain</p>
     <div class="guide-card-meta">Opening story</div>
     <h3 itemprop="headline">Africa and the West, in the Same Light</h3>
     <p itemprop="description">A street, an ocean, and the feeling that Tenerife belongs to more than one world.</p>
-    <a class="guide-card-link" href="africa-and-the-west-tenerife.html" itemprop="url">Read the story</a>
+    <a class="guide-card-link" aria-label="Read the story: Africa and the West, in the Same Light" href="africa-and-the-west-tenerife.html" itemprop="url">Read the story</a>
   </div>
 </article>
     <article class="guide-card" data-category="editorial" data-published="2026-07" itemscope itemtype="https://schema.org/Article">
@@ -2517,7 +2518,7 @@ Arona, Tenerife, Spain</p>
     <div class="guide-card-meta">Editorial</div>
     <h3 itemprop="headline">Editorial · Summer 2026</h3>
     <p itemprop="description">A personal story about returning to Tenerife — and how a holiday gradually became a place, a decision and a story.</p>
-    <a class="guide-card-link" href="editorial-summer-2026.html" itemprop="url">Read the story</a>
+    <a class="guide-card-link" aria-label="Read the story: Editorial · Summer 2026" href="editorial-summer-2026.html" itemprop="url">Read the story</a>
   </div>
 </article>
     <article class="guide-card" data-category="travel journal" data-published="2026-07" itemscope itemtype="https://schema.org/Article">
@@ -2531,7 +2532,7 @@ Arona, Tenerife, Spain</p>
     <div class="guide-card-meta">Travel journal</div>
     <h3 itemprop="headline">Tenerife Journal · Summer 2026</h3>
     <p itemprop="description">Los Cristianos before the town wakes: an early walk from Port Royale towards the promenade and the Atlantic.</p>
-    <a class="guide-card-link" href="tenerife-journal-summer-2026.html" itemprop="url">Read the story</a>
+    <a class="guide-card-link" aria-label="Read the story: Tenerife Journal · Summer 2026" href="tenerife-journal-summer-2026.html" itemprop="url">Read the story</a>
   </div>
 </article>
   </div>
@@ -2618,7 +2619,7 @@ Check dates
   function showImage(index){
     currentIndex = (index + images.length) % images.length;
     const img = images[currentIndex];
-    lightboxImage.src = img.src;
+    lightboxImage.src = img.dataset.fullSrc || img.src;
     lightboxImage.alt = img.alt || 'Gallery image';
     lightboxCaption.textContent = img.dataset.caption || img.alt || '';
   }

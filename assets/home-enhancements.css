@@ -163,8 +163,7 @@
   align-self: stretch;
   padding: 32px 24px;
   text-align: center;
-  background: linear-gradient(rgba(255,255,255,.84), rgba(255,255,255,.84)), url("../gallery-2-heated-pool.jpg") center 62% / cover no-repeat;
-  background-image: linear-gradient(rgba(255,255,255,.84), rgba(255,255,255,.84)), image-set(url("../gallery-2-heated-pool.webp") type("image/webp"), url("../gallery-2-heated-pool.jpg") type("image/jpeg"));
+  background: linear-gradient(rgba(255,255,255,.84), rgba(255,255,255,.84)), url("../images/map-pool-preview.webp") center 62% / cover no-repeat;
 }
 .map-placeholder .map-brand-icon { width: 40px; height: 40px; padding: 4px; border-radius: 50%; background: #fff; object-fit: contain; }
 #stay .map-placeholder h3 { margin: 8px 0; font-size: 18px; }
@@ -245,4 +244,17 @@
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+}
+
+/* Readable against the translucent navigation background over the hero. */
+.lang-switch :is(a, button) { color: #50514e; }
+
+/* Keep the complete first screen visible for visitors who reduce motion. */
+@media (prefers-reduced-motion: reduce) {
+  .hero .pill, .hero h1, .hero .actions,
+  #readerTopBar, .lang-switch.lang-intro-pending {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
