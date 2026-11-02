@@ -222,3 +222,64 @@
     letter-spacing: 0;
   }
 }
+
+/* Use the same visual identity without changing consent choices or placement. */
+:is(.home-page, .guide-theme) .pr-consent-panel {
+  color: #343b43;
+  background: #fcf8f0;
+  border-color: rgba(35, 69, 99, .18);
+  border-top: 2px solid #e3b54b;
+  border-radius: 14px;
+  box-shadow: 0 12px 36px rgba(8, 28, 47, .16);
+  font-family: "DM Sans Home", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+:is(.home-page, .guide-theme) .pr-consent-panel .pr-consent-title {
+  color: #081c2f;
+  font-family: inherit;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -.025em;
+}
+:is(.home-page, .guide-theme) .pr-consent-panel p { color: #343b43; font-size: 15px; line-height: 1.6; }
+:is(.home-page, .guide-theme) .pr-consent-panel :is(.pr-consent-current, .pr-consent-preview) {
+  color: #59616b;
+  font-size: 13px;
+}
+:is(.home-page, .guide-theme) .pr-consent-panel .pr-consent-choice {
+  color: #fcf8f0;
+  background: #081c2f;
+  border-color: #081c2f;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+}
+:is(.home-page, .guide-theme) .pr-consent-panel .pr-consent-choice:hover {
+  background: #0d2b45;
+  border-color: #0d2b45;
+}
+:is(.home-page, .guide-theme) .pr-consent-panel :is(.pr-consent-privacy, .pr-consent-close) {
+  color: #081c2f;
+  font-family: inherit;
+  font-weight: 500;
+  text-decoration-color: #e3b54b;
+}
+:is(.home-page, .guide-theme) .pr-footer-links :is(a, .pr-cookie-settings) {
+  color: #081c2f;
+  font-family: "DM Sans Home", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 500;
+}
+:is(.home-page, .guide-theme) .pr-footer-links :is(a, .pr-cookie-settings):hover {
+  color: #081c2f;
+  text-decoration-color: #e3b54b;
+}
+:is(.home-page, .guide-theme) .pr-consent-panel :focus-visible,
+:is(.home-page, .guide-theme) .pr-cookie-settings:focus-visible { outline-color: #081c2f; }
+@media (max-width: 640px) {
+  :is(.home-page, .guide-theme) .pr-consent-panel { padding: 16px; }
+  :is(.home-page, .guide-theme) .pr-consent-panel .pr-consent-title { font-size: 19px; }
+  :is(.home-page, .guide-theme) .pr-consent-panel p { line-height: 1.6 !important; }
+}

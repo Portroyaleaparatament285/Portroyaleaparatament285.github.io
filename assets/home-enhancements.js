@@ -2,6 +2,54 @@
   "use strict";
 
   var spanish = document.documentElement.lang === "es";
+  var topBar = document.getElementById("readerTopBar");
+  var mainNavigation = topBar && topBar.querySelector(".navlinks");
+  if (mainNavigation) {
+    var informationLink = mainNavigation.querySelector("a[href='#stay']");
+    var galleryLink = mainNavigation.querySelector("a[href='#gallery']");
+    var contactLink = mainNavigation.querySelector("a[href='#contact']");
+    if (informationLink && galleryLink && contactLink) {
+      function syncMenuOrder() {
+        var nextLink = window.matchMedia("(min-width: 1021px)").matches ? contactLink : galleryLink;
+        if (informationLink.nextElementSibling === nextLink) return;
+        var restoreFocus = document.activeElement === informationLink;
+        mainNavigation.insertBefore(informationLink, nextLink);
+        if (restoreFocus) informationLink.focus({ preventScroll: true });
+      }
+      syncMenuOrder();
+      window.addEventListener("resize", syncMenuOrder, { passive: true });
+    }
+  }
+  var sectionLinks = Array.from(document.querySelectorAll("#readerTopBar .navlinks a[href^='#']"));
+  var menuSections = sectionLinks.map(function (link) {
+    return { link: link, section: document.getElementById(link.hash.slice(1)) };
+  }).filter(function (entry) { return entry.section; });
+
+  if (topBar && menuSections.length) {
+    var menuFrame = false;
+    function updateMenuSection() {
+      menuFrame = false;
+      var probe = topBar.offsetHeight + 80;
+      menuSections.forEach(function (entry) {
+        var bounds = entry.section.getBoundingClientRect();
+        if (bounds.top <= probe && bounds.bottom > probe) {
+          entry.link.setAttribute("aria-current", "location");
+        } else {
+          entry.link.removeAttribute("aria-current");
+        }
+      });
+    }
+    function scheduleMenuSection() {
+      if (menuFrame) return;
+      menuFrame = true;
+      window.requestAnimationFrame(updateMenuSection);
+    }
+    window.addEventListener("scroll", scheduleMenuSection, { passive: true });
+    window.addEventListener("resize", scheduleMenuSection, { passive: true });
+    window.addEventListener("load", scheduleMenuSection);
+    updateMenuSection();
+  }
+
   var track = document.getElementById("review-track");
   var controls = document.querySelector(".review-controls");
 
@@ -88,5 +136,121 @@
       hideMap.hidden = true;
       loadMap.focus();
     });
+  }
+  var shareButton = document.querySelector(".gallery-share-button");
+  var shareStatus = document.querySelector(".share-status");
+  var sharePanel = document.querySelector(".share-link-panel");
+  if (shareButton && shareStatus && sharePanel) {
+    // Keep one sharing control and its fallback panel as the layout changes.
+    var shareHome = document.createComment("share-control-home");
+    var shareControl = document.createElement("div");
+    shareControl.className = "share-control";
+    shareButton.parentNode.insertBefore(shareHome, shareButton);
+    shareButton.parentNode.insertBefore(shareControl, shareButton);
+    shareControl.appendChild(shareButton);
+    shareControl.appendChild(sharePanel);
+    shareButton.title = shareButton.getAttribute("aria-label");
+
+    function syncSharePlacement() {
+      var inHeader = topBar && window.matchMedia("(min-width: 1021px)").matches;
+      var destination = inHeader ? topBar : shareHome.parentNode;
+      if (!destination || shareControl.parentNode === destination) return;
+      var activeControl = shareControl.contains(document.activeElement) ? document.activeElement : null;
+      var nextControl = inHeader ? topBar.querySelector(".lang-switch") : shareHome.nextSibling;
+      destination.insertBefore(shareControl, nextControl);
+      if (activeControl) activeControl.focus({ preventScroll: true });
+    }
+    syncSharePlacement();
+    window.addEventListener("resize", syncSharePlacement, { passive: true });
+
+    var shareInput = sharePanel.querySelector("input");
+    var shareClose = sharePanel.querySelector(".share-link-close");
+    var canonical = document.querySelector("link[rel='canonical']");
+    var shareUrl = canonical ? canonical.href : (spanish ? "https://portroyale285.es/es/" : "https://portroyale285.es/");
+    var shareStatusTimer;
+    var shareBusy = false;
+    shareInput.value = shareUrl;
+    shareButton.hidden = false;
+
+    function closeSharePanel(restoreFocus) {
+      sharePanel.hidden = true;
+      shareButton.setAttribute("aria-expanded", "false");
+      if (restoreFocus) shareButton.focus({ preventScroll: true });
+    }
+
+    function showShareLink() {
+      sharePanel.hidden = false;
+      shareButton.setAttribute("aria-expanded", "true");
+      shareInput.focus({ preventScroll: true });
+      shareInput.select();
+    }
+
+    function announceCopiedLink() {
+      window.clearTimeout(shareStatusTimer);
+      shareStatus.textContent = spanish ? "Enlace copiado" : "Link copied";
+      shareStatusTimer = window.setTimeout(function () { shareStatus.textContent = ""; }, 3000);
+    }
+
+    function copyWithSelection() {
+      var previousFocus = document.activeElement;
+      var copyField = document.createElement("textarea");
+      copyField.value = shareUrl;
+      copyField.readOnly = true;
+      copyField.tabIndex = -1;
+      copyField.style.cssText = "position:fixed;top:0;left:-9999px;";
+      document.body.appendChild(copyField);
+      var copied = false;
+      try {
+        copyField.select();
+        copyField.setSelectionRange(0, shareUrl.length);
+        copied = typeof document.execCommand === "function" && document.execCommand("copy");
+      } catch (error) {
+        copied = false;
+      } finally {
+        copyField.remove();
+        if (previousFocus && previousFocus.isConnected) previousFocus.focus({ preventScroll: true });
+      }
+      return copied;
+    }
+
+    async function copyShareLink() {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === "function") {
+        try {
+          await navigator.clipboard.writeText(shareUrl);
+          return true;
+        } catch (error) { /* Offer selection if direct copying is unavailable. */ }
+      }
+      return copyWithSelection();
+    }
+
+    shareButton.addEventListener("click", async function () {
+      if (shareBusy) return;
+      shareBusy = true;
+      shareButton.setAttribute("aria-busy", "true");
+      closeSharePanel(false);
+      try {
+        if (typeof navigator.share === "function") {
+          try {
+            await navigator.share({ title: document.title, url: shareUrl });
+            return;
+          } catch (error) {
+            if (error && error.name === "AbortError") return;
+          }
+        }
+        if (await copyShareLink()) announceCopiedLink();
+        else showShareLink();
+      } finally {
+        shareBusy = false;
+        shareButton.removeAttribute("aria-busy");
+      }
+    });
+    shareClose.addEventListener("click", function () { closeSharePanel(true); });
+    sharePanel.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeSharePanel(true);
+      }
+    });
+    shareInput.addEventListener("click", function () { shareInput.select(); });
   }
 }());

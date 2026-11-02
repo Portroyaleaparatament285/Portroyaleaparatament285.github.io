@@ -1,0 +1,73 @@
+/* Layout for the Palm-Mar food diary; colours and type come from guide-theme.css. */
+.palm-mar-page * { box-sizing: border-box; }
+.palm-mar-page #article-content { margin: 0; padding: 0; }
+.palm-mar-page .story-hero {
+  display: flex;
+  align-items: flex-end;
+  min-height: 86vh;
+  min-height: 86svh;
+  isolation: isolate;
+}
+.palm-mar-page .story-hero-media {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  display: block;
+}
+.palm-mar-page .story-hero-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 48%;
+}
+.palm-mar-page .story-hero::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+}
+.palm-mar-page .story-hero-inner {
+  position: relative;
+  width: min(1120px, 92%);
+  margin: 0 auto;
+  padding: 112px 0 64px;
+}
+.palm-mar-page .story-title { max-width: 900px; margin: 14px 0 20px; }
+.palm-mar-page .story-subtitle { max-width: 720px; margin: 0; }
+.palm-mar-page .byline { margin-top: 28px; }
+.palm-mar-page .byline a { color: inherit; text-underline-offset: 4px; }
+.palm-mar-page .story-body {
+  width: min(780px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 64px 0 72px;
+}
+.palm-mar-page .story-body p { margin: 0 0 1.45em; }
+.palm-mar-page .story-body h2 { margin: 2.2em 0 .8em; }
+.palm-mar-page .story-body h3 { margin: 0 0 12px; }
+.palm-mar-page .figure {
+  width: min(520px, 100%);
+  margin: 48px auto;
+}
+.palm-mar-page .figure img { display: block; width: 100%; height: auto; }
+.palm-mar-page .figure figcaption { margin-top: 12px; text-align: center; }
+.palm-mar-page .story-body blockquote { margin: 48px 0; }
+.palm-mar-page .story-body blockquote p { margin: 0; }
+.palm-mar-page .note { margin: 48px 0 0; padding: 24px; font-size: 16px; }
+.palm-mar-page .note p:last-child { margin-bottom: 0; }
+.palm-mar-page .signature {
+  margin-top: 56px;
+  padding-top: 28px;
+  border-top: 1px solid var(--site-line);
+}
+.palm-mar-page .signature strong a { font: inherit; text-decoration: none; }
+.palm-mar-page .signature strong a:hover { text-decoration: underline; }
+@media (max-width: 700px) {
+  .palm-mar-page .story-hero { min-height: 78vh; min-height: 78svh; }
+  .palm-mar-page .story-hero-media img { object-position: center; }
+  .palm-mar-page .story-hero-inner { padding: 100px 0 40px; }
+  .palm-mar-page .story-body { padding-top: 40px; padding-bottom: 48px; }
+  .palm-mar-page .figure { margin: 36px auto; }
+  .palm-mar-page .story-body blockquote { margin: 36px 0; }
+  .palm-mar-page .note { padding: 22px; }
+}

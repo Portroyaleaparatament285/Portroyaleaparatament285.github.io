@@ -82,7 +82,7 @@
         return;
       }
 
-      var links = navigation.querySelectorAll("a");
+      var links = navigation.querySelectorAll("a:not(.nav-desktop-only)");
       header.classList.toggle("reader-nav-five-links", links.length === 5);
       header.classList.add("reader-nav-measuring");
       var navigationBounds = navigation.getBoundingClientRect();

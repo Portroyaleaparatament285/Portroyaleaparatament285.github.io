@@ -427,6 +427,32 @@ body.guide-index-page {
   text-align: center;
 }
 
+/* Ivory, navy and muted gold trial, limited to the Guide archive. */
+body.guide-index-page {
+  --site-bg: #f5efe5;
+  --site-card: #fffcf6;
+  --site-text: #1c334b;
+  --site-muted: #59616b;
+  --site-line: rgba(28, 51, 75, .13);
+  --site-accent: #234563;
+  --site-gold: #89692f;
+  background: linear-gradient(180deg, #fcf8f0 0%, var(--site-bg) 100%);
+}
+
+.guide-index-page .site-nav {
+  background: #eee6d9;
+  border-color: rgba(137, 105, 47, .2);
+}
+
+.guide-index-page .guide-card {
+  border-color: rgba(137, 105, 47, .19);
+}
+
+.guide-index-page .guide-card-link:hover,
+.guide-index-page .site-nav-links a:hover {
+  color: var(--site-gold);
+}
+
 /* Article integration */
 body.article-page {
   overflow-x: hidden;

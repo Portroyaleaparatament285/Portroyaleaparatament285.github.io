@@ -1268,6 +1268,10 @@ Arona, Tenerife, Spain</p>
   }
 
   function onScroll() {
+    if (!isMobileNav()) {
+      wakeBars();
+      return;
+    }
     hideBarsWhileScrolling();
     clearTimeout(scrollStopTimer);
     scrollStopTimer = setTimeout(showBars, 220);
