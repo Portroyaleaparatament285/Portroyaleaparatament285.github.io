@@ -29,12 +29,22 @@
     var menuFrame = false;
     function updateMenuSection() {
       menuFrame = false;
-      var probe = topBar.offsetHeight + 80;
-      menuSections.forEach(function (entry) {
-        var bounds = entry.section.getBoundingClientRect();
-        if (bounds.top <= probe && bounds.bottom > probe) {
-          entry.link.setAttribute("aria-current", "location");
-        } else {
+      // The full-screen opening precedes every section: no layout read is needed at the top.
+      var activeSections = [];
+      if (window.scrollY > 20) {
+        var probe = topBar.offsetHeight + 80;
+        activeSections = menuSections.map(function (entry) {
+          var bounds = entry.section.getBoundingClientRect();
+          return bounds.top <= probe && bounds.bottom > probe;
+        });
+      }
+      // Finish all geometry reads before changing attributes that can invalidate styles.
+      menuSections.forEach(function (entry, index) {
+        if (activeSections[index]) {
+          if (entry.link.getAttribute("aria-current") !== "location") {
+            entry.link.setAttribute("aria-current", "location");
+          }
+        } else if (entry.link.hasAttribute("aria-current")) {
           entry.link.removeAttribute("aria-current");
         }
       });
@@ -74,8 +84,8 @@
       return Math.min(cards.length - visibleCount(), Math.max(0, Math.round(track.scrollLeft / cardStep())));
     }
 
-    function updateStatus() {
-      var first = currentIndex() + 1;
+    function updateStatus(initialIndex) {
+      var first = (typeof initialIndex === "number" ? initialIndex : currentIndex()) + 1;
       var last = Math.min(cards.length, first + visibleCount() - 1);
       var range = first === last ? String(first) : first + "–" + last;
       status.textContent = spanish ? "Reseñas " + range + " de " + cards.length : "Reviews " + range + " of " + cards.length;
@@ -106,7 +116,8 @@
       scrollTimer = window.setTimeout(updateStatus, 120);
     }, { passive: true });
     window.addEventListener("resize", updateStatus, { passive: true });
-    updateStatus();
+    // A newly initialized carousel starts at its first card; avoid measuring offscreen cards.
+    updateStatus(0);
   }
 
   var map = document.getElementById("location-map");
